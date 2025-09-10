@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      The Double-Edged Sword: Technology and Cybercrime | Moksh Shah
+    </title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Quattrocento+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* All your CSS variables and styles from the main page */
+      :root {
+        --bg-color: #000;
+        --text-color: #fff;
+        --accent-color: #00ff88;
+        --secondary-accent: #0088ff;
+        --card-bg: rgba(255, 255, 255, 0.05);
+        --card-border: rgba(255, 255, 255, 0.1);
+        --header-bg: rgba(0, 0, 0, 0.8);
+        --footer-bg: rgba(0, 0, 0, 0.8);
+        --progress-bg: #00ff88;
+        --button-text: #000;
+        --stat-number: linear-gradient(90deg, #00ff88, #0088ff);
+        --stat-label: rgba(255, 255, 255, 0.7);
+        --tag-bg: rgba(255, 255, 255, 0.1);
+        --tag-text: #00ff88;
+        --button-bg: linear-gradient(90deg, #00ff88, #0088ff);
+        --button-hover: #00ff88;
+        --shadow-color: rgba(0, 255, 136, 0.2);
+      }
+
+      [data-theme="white"] {
+        --bg-color: #f5f5f7;
+        --text-color: #333;
+        --accent-color: #1e95e4;
+        --secondary-accent: #ffffff;
+        --card-bg: rgba(255, 255, 255, 0.9);
+        --card-border: rgba(0, 0, 0, 0.1);
+        --header-bg: rgba(245, 245, 247, 0.9);
+        --footer-bg: rgba(245, 245, 247, 0.9);
+        --progress-bg: #007acc;
+        --button-text: #fff;
+        --stat-number: linear-gradient(90deg, #007acc, #005a9e);
+        --stat-label: rgba(51, 51, 51, 0.8);
+        --tag-bg: rgba(0, 122, 204, 0.1);
+        --tag-text: #007acc;
+        --button-bg: linear-gradient(90deg, #007acc, #005a9e);
+        --button-hover: #005a9e;
+        --shadow-color: rgba(0, 122, 204, 0.2);
+      }
+
+      [data-theme="sepia"] {
+        --bg-color: #f4ecd8;
+        --text-color: #5b4636;
+        --accent-color: #d4aa00;
+        --secondary-accent: #a07800;
+        --card-bg: rgba(255, 255, 245, 0.8);
+        --card-border: rgba(91, 70, 54, 0.2);
+        --header-bg: rgba(244, 236, 216, 0.9);
+        --footer-bg: rgba(244, 236, 216, 0.9);
+        --progress-bg: #d4aa00;
+        --button-text: #fff;
+        --stat-number: linear-gradient(90deg, #d4aa00, #a07800);
+        --stat-label: rgba(91, 70, 54, 0.8);
+        --tag-bg: rgba(212, 170, 0, 0.1);
+        --tag-text: #d4aa00;
+        --button-bg: linear-gradient(90deg, #d4aa00, #a07800);
+        --button-hover: #a07800;
+        --shadow-color: rgba(212, 170, 0, 0.2);
+      }
+
+      [data-theme="contrast"] {
+        --bg-color: #000;
+        --text-color: #ffff00;
+        --accent-color: #ff6b6b;
+        --secondary-accent: #4ecdc4;
+        --card-bg: rgba(0, 0, 0, 0.9);
+        --card-border: rgba(255, 107, 107, 0.6);
+        --header-bg: rgba(0, 0, 0, 0.95);
+        --footer-bg: rgba(0, 0, 0, 0.95);
+        --progress-bg: #ff6b6b;
+        --button-text: #000;
+        --stat-number: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+        --stat-label: rgba(255, 255, 0, 0.9);
+        --tag-bg: rgba(255, 107, 107, 0.2);
+        --tag-text: #ff6b6b;
+        --button-bg: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+        --button-hover: #ff6b6b;
+        --shadow-color: rgba(255, 107, 107, 0.5);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+        transition: background-color 0.5s ease, color 0.5s ease,
+          border-color 0.5s ease;
+      }
+
+      body {
+        background: var(--bg-color);
+        color: var(--text-color);
+        overflow-x: hidden;
+        min-height: 100vh;
+      }
+
+      /* Global background with particles */
+      #global-particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+
+      /* Scroll progress bar */
+      #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 5px;
+        background: var(--progress-bg);
+        z-index: 9999;
+        width: 0%;
+        transition: width 0.25s ease-out;
+      }
+
+      /* Back to top button */
+      #back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--accent-color);
+        color: var(--button-text);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+        z-index: 1000;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      #back-to-top.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      #back-to-top:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 25px var(--shadow-color);
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        background: var(--header-bg);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+        box-shadow: 0 2px 10px var(--shadow-color);
+        z-index: 10;
+        backdrop-filter: blur(10px);
+      }
+
+      .logo {
+        font-weight: bold;
+        font-size: 24px;
+        color: var(--accent-color);
+        text-shadow: 0 0 10px var(--accent-color);
+        display: flex;
+        align-items: center;
+      }
+
+      .logo-icon {
+        margin-right: 10px;
+        font-size: 28px;
+      }
+
+      nav a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: 500;
+        position: relative;
+        transition: all 0.3s ease;
+        font-size: 16px;
+      }
+
+      nav a::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: var(--accent-color);
+        transition: width 0.3s;
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      nav a:hover {
+        color: var(--accent-color);
+        text-shadow: 0 0 10px var(--accent-color);
+      }
+
+      /* Blog Post Styles */
+      .blog-post-container {
+        max-width: 900px;
+        margin: 100px auto;
+        padding: 0 20px;
+      }
+
+      .blog-header {
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .blog-title {
+        color: var(--accent-color);
+        font-size: 3rem;
+        margin-bottom: 15px;
+        line-height: 1.2;
+      }
+
+      .blog-meta {
+        color: var(--text-color);
+        opacity: 0.8;
+        font-size: 1rem;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .blog-meta span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .blog-image {
+        width: 100%;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .blog-content {
+        line-height: 1.8;
+        font-size: 1.1rem;
+        color: var(--text-color);
+      }
+
+      .blog-content p {
+        margin-bottom: 25px;
+      }
+
+      .blog-content h2,
+      .blog-content h3 {
+        color: var(--accent-color);
+        margin: 40px 0 20px;
+      }
+
+      .blog-content blockquote {
+        border-left: 4px solid var(--accent-color);
+        padding-left: 20px;
+        margin: 30px 0;
+        font-style: italic;
+        opacity: 0.9;
+      }
+
+      .blog-content a {
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+
+      .blog-content a:hover {
+        text-decoration: underline;
+        text-shadow: 0 0 10px var(--accent-color);
+      }
+
+      .blog-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 40px 0;
+      }
+
+      .blog-tag {
+        background: var(--tag-bg);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        color: var(--tag-text);
+      }
+
+      .blog-navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 60px;
+        padding-top: 30px;
+        border-top: 1px solid var(--card-border);
+      }
+
+      .nav-btn {
+        padding: 12px 25px;
+        background: var(--button-bg);
+        color: var(--button-text);
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+      }
+
+      .nav-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px var(--shadow-color);
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 40px 20px;
+        background: var(--footer-bg);
+        color: var(--text-color);
+        opacity: 0.7;
+        font-size: 14px;
+        backdrop-filter: blur(10px);
+        margin-top: 60px;
+        border-top: 1px solid var(--card-border);
+        position: relative;
+        z-index: 3;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin: 20px 0;
+      }
+
+      .social-link {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--tag-bg);
+        color: var(--accent-color);
+        transition: all 0.3s;
+        text-decoration: none;
+      }
+
+      .social-link:hover {
+        background: var(--accent-color);
+        color: var(--button-text);
+        transform: translateY(-3px);
+      }
+
+      /* Theme switcher */
+      .theme-switcher {
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background: var(--card-bg);
+        padding: 15px;
+        border-radius: 15px;
+        border: 1px solid var(--card-border);
+        backdrop-filter: blur(10px);
+      }
+
+      .theme-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 2px solid var(--accent-color);
+        transition: all 0.3s;
+        box-shadow: 0 2px 10px var(--shadow-color);
+      }
+
+      .theme-btn[data-theme="dark"] {
+        background: #000;
+      }
+
+      .theme-btn[data-theme="white"] {
+        background: #f5f5f7;
+      }
+
+      .theme-btn[data-theme="sepia"] {
+        background: #f4ecd8;
+      }
+
+      .theme-btn[data-theme="contrast"] {
+        background: #000;
+        border: 2px solid #ffff00;
+      }
+
+      .theme-btn:hover {
+        transform: scale(1.1);
+      }
+
+      /* Responsive design */
+      @media (max-width: 900px) {
+        header {
+          flex-direction: column;
+          gap: 15px;
+          padding: 15px 20px;
+        }
+
+        nav {
+          margin-top: 15px;
+        }
+
+        .blog-title {
+          font-size: 2.5rem;
+        }
+
+        .blog-navigation {
+          flex-direction: column;
+          gap: 20px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .blog-title {
+          font-size: 2rem;
+        }
+
+        .blog-meta {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .theme-switcher {
+          bottom: 20px;
+          left: 20px;
+          flex-direction: row;
+        }
+      }
+    </style>
+  </head>
+  <body data-theme="dark">
+    <div id="progress-bar"></div>
+    <div id="back-to-top">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Global Background Particles -->
+    <div id="global-particles"></div>
+
+    <div id="main-content">
+      <header>
+        <div class="logo">
+          <i class="fas fa-code logo-icon"></i>
+          <a href="index.html" style="color: inherit; text-decoration: none"
+            >Moksh Shah</a
+          >
+        </div>
+        <nav>
+          <a href="index.html#home">Home</a>
+          <a href="index.html#skills">Skills</a>
+          <a href="index.html#showcase">Portfolio</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+      </header>
+
+      <div class="blog-post-container">
+        <div class="blog-header">
+          <h1 class="blog-title">
+            The Double-Edged Sword: Technology and Cybercrime
+          </h1>
+          <div class="blog-meta">
+            <span><i class="far fa-calendar"></i> March 15, 2023</span>
+            <span><i class="far fa-folder"></i> Cybersecurity</span>
+            <span><i class="far fa-clock"></i> 6 min read</span>
+          </div>
+          <img
+            src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
+            alt="Cybersecurity and Ethical Hacking"
+            class="blog-image"
+          />
+        </div>
+
+        <div class="blog-content">
+          <p>
+            In today's world, where technology plays a major role, almost
+            everyone owns modern devices. Technology has brought us so forward
+            in our life that even the older generation can compete with the
+            tech-savvy youth. However, this technological advancement comes with
+            its own set of challenges and dilemmas.
+          </p>
+
+          <p>
+            It is often asked by many parents whether introducing the concept of
+            technology to children is a boon or a bane. While technology offers
+            incredible educational opportunities and connectivity, it has also
+            led to a major disadvantage: with the help of advanced scientific
+            knowledge, hackers are exploiting vulnerabilities in devices and
+            illegally accessing personal information.
+          </p>
+
+          <h2>The Dark Side of the Internet</h2>
+
+          <p>
+            The internet and web technologies have been highly honored for
+            revolutionizing communication and information access. However, there
+            still seems to be a dark side of the internet world that has
+            emerged. This mainly involves spam, malware, phishing attacks, and
+            other malicious activities.
+          </p>
+
+          <blockquote>
+            "Hacking is an attempt to exploit a computer system or a private
+            network inside a computer for illicit purposes."
+          </blockquote>
+
+          <p>
+            Hacking represents unauthorized access to computer network security
+            systems. The most common cybercrime is hacking, where individuals
+            gain access to other people's computers and passwords to use them
+            for their own wrongful gain.
+          </p>
+
+          <h2>What is Cybercrime?</h2>
+
+          <p>
+            Cybercrime is the use of computers and networks to perform illegal
+            activities such as spreading computer viruses, online bullying,
+            performing unauthorized electronic fund transfers, and more. Some
+            cybercrimes can also be carried out using mobile phones via SMS and
+            online chatting applications.
+          </p>
+
+          <p>
+            Cybercrimes can be regarded as offences that are committed against
+            individuals or groups of individuals with a criminal motive to
+            intentionally harm the reputation of the victim or cause physical or
+            mental harm, or loss, to the victim directly or indirectly.
+          </p>
+
+          <h2>What is Ethical Hacking?</h2>
+
+          <p>
+            Another topic about which everyone is curious to know is ethical
+            hacking. Basically, it is an authorized practice of bypassing system
+            security to identify potential threats in a network. The company
+            that owns the system or network allows cybersecurity engineers to
+            perform such activities to test the system's defenses. Thus, unlike
+            malicious hacking, this process is planned, approved, and crucially,
+            legal.
+          </p>
+
+          <p>
+            By conducting penetration tests, an ethical hacker looks to answer
+            the following four basic questions:
+          </p>
+
+          <ul style="margin-left: 30px; margin-bottom: 25px">
+            <li>
+              What information/locations/systems can an attacker gain access to?
+            </li>
+            <li>What can an attacker see on the target?</li>
+            <li>What can an attacker do with available information?</li>
+            <li>Does anyone at the target system notice the attempts?</li>
+          </ul>
+
+          <h2>The Role of Ethical Hackers</h2>
+
+          <p>
+            An ethical hacker operates with the knowledge and permission of the
+            organization for which they are trying to defend. In some cases, the
+            organization will neglect to inform their information security team
+            of the activities that will be carried out by an ethical hacker in
+            an attempt to test the effectiveness of the information security
+            team. This is referred to as a double-blind environment.
+          </p>
+
+          <p>
+            Ethical hacking is mainly focused on fighting against terrorism and
+            national security breaches. It is used to build systems that help
+            prevent the penetration of secretive information by malicious
+            hackers. Moreover, it provides security to banking and financial
+            establishments.
+          </p>
+
+          <h2>Conclusion</h2>
+
+          <p>
+            In conclusion, cybercrime is designed for the disadvantageous
+            purpose of exploiting citizens, whereas ethical hacking is organized
+            under particular groups or specific organizations for protective
+            purposes. While cybercrime seeks to harm and exploit, ethical
+            hacking works to create a safer digital environment for everyone.
+          </p>
+
+          <p>
+            As technology continues to evolve, the line between these two facets
+            of cybersecurity will become increasingly important to understand.
+            The future of digital security depends on our ability to harness the
+            skills of ethical hackers to protect against those with malicious
+            intent.
+          </p>
+        </div>
+
+        <div class="blog-tags">
+          <span class="blog-tag">Cybersecurity</span>
+          <span class="blog-tag">Ethical Hacking</span>
+          <span class="blog-tag">Technology</span>
+          <span class="blog-tag">Cybercrime</span>
+          <span class="blog-tag">Digital Security</span>
+        </div>
+
+        <div class="blog-navigation">
+          <a href="blog-post.html" class="nav-btn">
+            <i class="fas fa-arrow-left"></i> Previous Post
+          </a>
+          <a href="index.html#showcase" class="nav-btn">
+            Back to Portfolio <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <footer>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2025 Moksh Shah. All rights reserved.</p>
+        <p>
+          Contact me at:
+          <a
+            href="mailto:moksh230305@gmail.com"
+            style="color: var(--accent-color)"
+            >moksh230305@gmail.com</a
+          >
+        </p>
+      </footer>
+    </div>
+
+    <!-- Theme Switcher -->
+    <div class="theme-switcher">
+      <button
+        class="theme-btn"
+        data-theme="dark"
+        onclick="setTheme('dark')"
+        title="Dark Mode"
+      ></button>
+      <button
+        class="theme-btn"
+        data-theme="white"
+        onclick="setTheme('white')"
+        title="Light Mode"
+      ></button>
+      <button
+        class="theme-btn"
+        data-theme="sepia"
+        onclick="setTheme('sepia')"
+        title="Sepia Mode"
+      ></button>
+      <button
+        class="theme-btn"
+        data-theme="contrast"
+        onclick="setTheme('contrast')"
+        title="High Contrast"
+      ></button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+      // Theme switcher
+      function setTheme(theme) {
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+        updateParticlesForTheme();
+      }
+
+      // Load saved theme from localStorage
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) {
+        setTheme(savedTheme);
+      }
+
+      // Function to update particles based on current theme
+      function updateParticlesForTheme() {
+        const accentColor = getComputedStyle(document.documentElement)
+          .getPropertyValue("--accent-color")
+          .trim();
+
+        const container = document.getElementById("global-particles");
+        container.innerHTML = "";
+
+        particlesJS("global-particles", {
+          particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: accentColor },
+            shape: { type: "circle" },
+            opacity: {
+              value: 0.5,
+              random: true,
+              anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false },
+            },
+            size: {
+              value: 3,
+              random: true,
+              anim: { enable: true, speed: 2, size_min: 0.1, sync: false },
+            },
+            line_linked: {
+              enable: true,
+              distance: 150,
+              color: accentColor,
+              opacity: 0.4,
+              width: 1,
+            },
+            move: {
+              enable: true,
+              speed: 1,
+              direction: "none",
+              random: true,
+              straight: false,
+              out_mode: "out",
+              bounce: false,
+            },
+          },
+          interactivity: {
+            detect_on: "canvas",
+            events: {
+              onhover: { enable: true, mode: "grab" },
+              onclick: { enable: true, mode: "push" },
+              resize: true,
+            },
+          },
+          retina_detect: true,
+        });
+      }
+
+      // Initialize particles
+      document.addEventListener("DOMContentLoaded", function () {
+        updateParticlesForTheme();
+
+        // Scroll progress bar
+        window.addEventListener("scroll", () => {
+          const scrollTop = document.documentElement.scrollTop;
+          const scrollHeight =
+            document.documentElement.scrollHeight - window.innerHeight;
+          document.getElementById("progress-bar").style.width = `${(
+            (scrollTop / scrollHeight) *
+            100
+          ).toFixed(2)}%`;
+
+          // Show/hide back to top button
+          const backToTop = document.getElementById("back-to-top");
+          if (scrollTop > 500) {
+            backToTop.classList.add("visible");
+          } else {
+            backToTop.classList.remove("visible");
+          }
+        });
+
+        // Back to top functionality
+        document.getElementById("back-to-top").addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
