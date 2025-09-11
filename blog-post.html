@@ -221,10 +221,45 @@
         text-shadow: 0 0 10px var(--accent-color);
       }
 
+      /* Blog Container with Skills-like Styling */
+      .blog-container {
+        padding: 80px 20px;
+        background: var(--card-bg);
+        border-radius: 20px;
+        margin: 50px auto;
+        max-width: 1200px;
+        border: 1px solid var(--card-border);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .blog-container .blog-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 60px;
+        color: var(--text-color);
+        position: relative;
+      }
+
+      .blog-container .blog-title::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--accent-color),
+          var(--secondary-accent)
+        );
+        border-radius: 2px;
+      }
+
       /* Blog Post Styles */
       .blog-post-container {
         max-width: 900px;
-        margin: 100px auto;
+        margin: 0 auto;
         padding: 0 20px;
       }
 
@@ -374,6 +409,7 @@
         background: var(--tag-bg);
         color: var(--accent-color);
         transition: all 0.3s;
+        text-decoration: none;
       }
 
       .social-link:hover {
@@ -449,6 +485,11 @@
           flex-direction: column;
           gap: 20px;
         }
+
+        .blog-container {
+          padding: 60px 15px;
+          margin: 30px auto;
+        }
       }
 
       @media (max-width: 600px) {
@@ -465,6 +506,11 @@
           bottom: 20px;
           left: 20px;
           flex-direction: row;
+        }
+
+        nav a {
+          margin: 0 8px;
+          font-size: 14px;
         }
       }
     </style>
@@ -490,159 +536,157 @@
           <a href="index.html#home">Home</a>
           <a href="index.html#skills">Skills</a>
           <a href="index.html#showcase">Portfolio</a>
+          <a href="index.html#testimonials">Testimonials</a>
           <a href="index.html#contact">Contact</a>
         </nav>
       </header>
 
-      <div class="blog-post-container">
-        <div class="blog-header">
-          <h1 class="blog-title" id="blog-title">Journey to a Metal World</h1>
-          <div class="blog-meta">
-            <span><i class="far fa-calendar"></i> August 22, 2020</span>
-            <span><i class="far fa-folder"></i> Science & Technology</span>
-            <span><i class="far fa-clock"></i> 5 min read</span>
+      <div class="blog-container">
+        <h2 class="blog-title">Journey to a Metal World</h2>
+
+        <div class="blog-post-container">
+          <div class="blog-header">
+            <div class="blog-meta">
+              <span><i class="far fa-calendar"></i> August 22, 2020</span>
+              <span><i class="far fa-folder"></i> Science & Technology</span>
+              <span><i class="far fa-clock"></i> 5 min read</span>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
+              alt="Journey to a Metal World"
+              class="blog-image"
+            />
           </div>
-          <img
-            src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
-            alt="Journey to a Metal World"
-            class="blog-image"
-          />
-        </div>
 
-        <div class="blog-content">
-          <p>
-            Metals have always fascinated humankind with their unique properties
-            and versatility. From the Bronze Age to the Silicon Age, metals have
-            played a crucial role in shaping human civilization.
-          </p>
+          <div class="blog-content">
+            <p>
+              Metals have always fascinated humankind with their unique
+              properties and versatility. From the Bronze Age to the Silicon
+              Age, metals have played a crucial role in shaping human
+              civilization.
+            </p>
 
-          <p>
-            The journey to understanding metals begins with their atomic
-            structure. Metals typically have one to three electrons in their
-            outer shell, which they readily give up, making them excellent
-            conductors of electricity and heat.
-          </p>
+            <p>
+              The journey to understanding metals begins with their atomic
+              structure. Metals typically have one to three electrons in their
+              outer shell, which they readily give up, making them excellent
+              conductors of electricity and heat.
+            </p>
 
-          <h2>The Properties That Define Metals</h2>
+            <h2>The Properties That Define Metals</h2>
 
-          <p>
-            One of the most remarkable properties of metals is their strength.
-            Unlike other materials, metals can withstand tremendous forces
-            without breaking. This property makes them ideal for construction,
-            transportation, and countless other applications.
-          </p>
+            <p>
+              One of the most remarkable properties of metals is their strength.
+              Unlike other materials, metals can withstand tremendous forces
+              without breaking. This property makes them ideal for construction,
+              transportation, and countless other applications.
+            </p>
 
-          <blockquote>
-            "Metals are the backbone of modern civilization, enabling everything
-            from skyscrapers to smartphones."
-          </blockquote>
+            <blockquote>
+              "Metals are the backbone of modern civilization, enabling
+              everything from skyscrapers to smartphones."
+            </blockquote>
 
-          <p>
-            Another fascinating aspect of metals is their ability to form
-            alloys. By combining different metals, we can create materials with
-            enhanced properties. For example, stainless steel combines iron with
-            chromium and nickel to create a corrosion-resistant material.
-          </p>
+            <p>
+              Another fascinating aspect of metals is their ability to form
+              alloys. By combining different metals, we can create materials
+              with enhanced properties. For example, stainless steel combines
+              iron with chromium and nickel to create a corrosion-resistant
+              material.
+            </p>
 
-          <h2>Metals in Technology</h2>
+            <h2>Metals in Technology</h2>
 
-          <p>
-            In the modern world, metals are at the heart of technological
-            advancement. From the copper in our electrical wiring to the lithium
-            in our batteries, metals power our devices and infrastructure.
-          </p>
+            <p>
+              In the modern world, metals are at the heart of technological
+              advancement. From the copper in our electrical wiring to the
+              lithium in our batteries, metals power our devices and
+              infrastructure.
+            </p>
 
-          <p>
-            Rare earth metals, though less known, are crucial components in
-            smartphones, computers, and renewable energy technologies. These
-            elements enable the miniaturization and efficiency that characterize
-            modern electronics.
-          </p>
+            <p>
+              Rare earth metals, though less known, are crucial components in
+              smartphones, computers, and renewable energy technologies. These
+              elements enable the miniaturization and efficiency that
+              characterize modern electronics.
+            </p>
 
-          <h2>The Future of Metals</h2>
+            <h2>The Future of Metals</h2>
 
-          <p>
-            As we look to the future, metals will continue to play a vital role
-            in emerging technologies like renewable energy, electric vehicles,
-            and space exploration. The journey to a metal world is an ongoing
-            adventure of discovery and innovation.
-          </p>
+            <p>
+              As we look to the future, metals will continue to play a vital
+              role in emerging technologies like renewable energy, electric
+              vehicles, and space exploration. The journey to a metal world is
+              an ongoing adventure of discovery and innovation.
+            </p>
 
-          <p>
-            Researchers are continually developing new metal alloys with
-            unprecedented properties, from shape-memory alloys that "remember"
-            their original form to metallic glasses that combine strength with
-            flexibility.
-          </p>
+            <p>
+              Researchers are continually developing new metal alloys with
+              unprecedented properties, from shape-memory alloys that "remember"
+              their original form to metallic glasses that combine strength with
+              flexibility.
+            </p>
 
-          <h2>Exploring Metal Applications</h2>
+            <h2>Exploring Metal Applications</h2>
 
-          <p>
-            The applications of metals extend far beyond traditional uses. In
-            medicine, titanium alloys are used for implants due to their
-            biocompatibility and strength. In aerospace, aluminum and titanium
-            alloys provide the perfect balance of strength and lightness needed
-            for aircraft and spacecraft.
-          </p>
+            <p>
+              The applications of metals extend far beyond traditional uses. In
+              medicine, titanium alloys are used for implants due to their
+              biocompatibility and strength. In aerospace, aluminum and titanium
+              alloys provide the perfect balance of strength and lightness
+              needed for aircraft and spacecraft.
+            </p>
 
-          <p>
-            Even in the world of art, metals play a crucial role. Bronze
-            sculptures have endured for millennia, while contemporary artists
-            use stainless steel and other modern alloys to create stunning works
-            that defy traditional material limitations.
-          </p>
+            <p>
+              Even in the world of art, metals play a crucial role. Bronze
+              sculptures have endured for millennia, while contemporary artists
+              use stainless steel and other modern alloys to create stunning
+              works that defy traditional material limitations.
+            </p>
 
-          <h2>Sustainability and Metal Recycling</h2>
+            <h2>Sustainability and Metal Recycling</h2>
 
-          <p>
-            One of the most important aspects of metal usage in the 21st century
-            is sustainability. Metals are among the most recyclable materials on
-            Earth. Aluminum, for instance, can be recycled repeatedly without
-            losing its properties, saving up to 95% of the energy required for
-            primary production.
-          </p>
+            <p>
+              One of the most important aspects of metal usage in the 21st
+              century is sustainability. Metals are among the most recyclable
+              materials on Earth. Aluminum, for instance, can be recycled
+              repeatedly without losing its properties, saving up to 95% of the
+              energy required for primary production.
+            </p>
 
-          <p>
-            The circular economy for metals is becoming increasingly important
-            as we strive to reduce our environmental impact. From recovering
-            precious metals from electronic waste to repurposing structural
-            steel, metal recycling represents a significant opportunity for
-            sustainable development.
-          </p>
+            <p>
+              The circular economy for metals is becoming increasingly important
+              as we strive to reduce our environmental impact. From recovering
+              precious metals from electronic waste to repurposing structural
+              steel, metal recycling represents a significant opportunity for
+              sustainable development.
+            </p>
 
-          <p>
-            As we continue our journey to a metal world, we're discovering new
-            ways to harness these remarkable materials while minimizing our
-            environmental footprint. The future of metals is not just about
-            discovering new alloys, but also about using them more intelligently
-            and sustainably.
-          </p>
+            <p>
+              As we continue our journey to a metal world, we're discovering new
+              ways to harness these remarkable materials while minimizing our
+              environmental footprint. The future of metals is not just about
+              discovering new alloys, but also about using them more
+              intelligently and sustainably.
+            </p>
+          </div>
 
-          <p>
-            Read the full article on
-            <a
-              href="https://mokshcs.wordpress.com/2020/08/22/journey-to-a-metal-world/"
-              target="_blank"
-              >my WordPress blog</a
-            >.
-          </p>
-        </div>
+          <div class="blog-tags">
+            <span class="blog-tag">Science</span>
+            <span class="blog-tag">Metals</span>
+            <span class="blog-tag">Technology</span>
+            <span class="blog-tag">Materials</span>
+            <span class="blog-tag">Sustainability</span>
+          </div>
 
-        <div class="blog-tags">
-          <span class="blog-tag">Science</span>
-          <span class="blog-tag">Metals</span>
-          <span class="blog-tag">Technology</span>
-          <span class="blog-tag">Materials</span>
-          <span class="blog-tag">Sustainability</span>
-        </div>
-
-        <div class="blog-navigation">
-          <a href="index.html#showcase" class="nav-btn">
-            <i class="fas fa-arrow-left"></i> Back to Portfolio
-          </a>
-          <a href="blog2.html" class="nav-btn">
-            Next Post <i class="fas fa-arrow-right"></i>
-          </a>
+          <div class="blog-navigation">
+            <a href="index.html#showcase" class="nav-btn">
+              <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+            <a href="blog2.html" class="nav-btn">
+              Next Post <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
         </div>
       </div>
 
