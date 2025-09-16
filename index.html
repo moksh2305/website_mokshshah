@@ -1724,6 +1724,7 @@
         }
       }
 
+      /* Search Styles - Updated */
       .search-container {
         position: relative;
         margin-left: 20px;
@@ -1733,6 +1734,21 @@
         position: relative;
         display: flex;
         align-items: center;
+      }
+
+      .search-toggle {
+        background: none;
+        border: none;
+        color: var(--text-color);
+        font-size: 18px;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+
+      .search-toggle:hover {
+        background: var(--tag-bg);
       }
 
       .search-input {
@@ -1829,20 +1845,34 @@
       /* Mobile search */
       @media (max-width: 900px) {
         .search-container {
-          margin: 15px 0 0 0;
+          margin: 0;
+          order: 3;
           width: 100%;
+          margin-top: 15px;
+        }
+
+        .search-input-container {
+          width: 100%;
+          justify-content: flex-end;
         }
 
         .search-input {
+          display: none;
           width: 100%;
         }
 
-        .search-input:focus {
-          width: 100%;
+        .search-input.active {
+          display: block;
         }
 
         .search-results {
           width: 100%;
+        }
+      }
+
+      @media (min-width: 901px) {
+        .search-toggle {
+          display: none;
         }
       }
     </style>
@@ -1866,29 +1896,6 @@
       <a href="#testimonials">Testimonials</a>
       <a href="#contact">Contact</a>
 
-      <div class="mobile-search">
-        <input
-          type="text"
-          placeholder="Search..."
-          class="search-input"
-          id="mobile-search-input"
-        />
-        <div class="search-results" id="mobile-search-results"></div>
-      </div>
-      <div class="search-container">
-        <button class="search-toggle" id="search-toggle">
-          <i class="fas fa-search"></i>
-        </button>
-        <div class="search-box" id="search-box">
-          <input
-            type="text"
-            placeholder="Search..."
-            class="search-input"
-            id="search-input"
-          />
-          <div class="search-results" id="search-results"></div>
-        </div>
-      </div>
       <div class="resume-download">
         <button id="mobile-download-btn">Download Resume</button>
       </div>
@@ -1996,18 +2003,21 @@
           <a href="#contact">Contact</a>
         </nav>
 
-        <!-- Search Container -->
+        <!-- Search Container - Updated -->
         <div class="search-container">
           <div class="search-input-container">
-            <i class="fas fa-search search-icon"></i>
+            <button class="search-toggle" id="search-toggle">
+              <i class="fas fa-search"></i>
+            </button>
             <input
               type="text"
               placeholder="Search projects, blogs, skills..."
               class="search-input"
               id="search-input"
             />
+            <i class="fas fa-search search-icon"></i>
+            <div class="search-results" id="search-results"></div>
           </div>
-          <div class="search-results" id="search-results"></div>
         </div>
 
         <!-- Resume -->
@@ -2189,7 +2199,7 @@
               </div>
             </div>
 
-            <!-- AI/ML Projects -->
+            <!-- Enceladus -->
             <div class="showcase-card" data-category="blogs">
               <div class="card-image">
                 <img
@@ -2211,6 +2221,63 @@
                 </div>
                 <div class="card-action">
                   <a href="blog-double-edged-sword.html" class="card-btn">
+                    <i class="fas fa-book-open"></i> Read More
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Portals To Other Universe (1) -->
+            <div class="showcase-card" data-category="blogs">
+              <div class="card-image">
+                <img
+                  src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1510&q=80"
+                  alt="Portals to Other Universe"
+                />
+              </div>
+              <div class="card-content">
+                <h3>Portals to Other Universe</h3>
+                <p>
+                  Exploring the fascinating concepts of wormholes, multiverse
+                  theories, and the scientific possibilities of interdimensional
+                  travel.
+                </p>
+                <div class="card-tags">
+                  <span class="card-tag">Physics</span>
+                  <span class="card-tag">Cosmology</span>
+                  <span class="card-tag">Theoretical Physics</span>
+                </div>
+                <div class="card-action">
+                  <a href="portals-to-other-universe-1.html" class="card-btn">
+                    <i class="fas fa-book-open"></i> Read More
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Portals To Other Universe (2) -->
+            <!-- Add this card after the existing blog cards in the carousel track -->
+            <div class="showcase-card" data-category="blogs">
+              <div class="card-image">
+                <img
+                  src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1510&q=80"
+                  alt="Portals to Other Universe: The Multiverse Theory"
+                />
+              </div>
+              <div class="card-content">
+                <h3>Portals to Other Universe: The Multiverse Theory</h3>
+                <p>
+                  Exploring the fascinating concepts of wormholes, multiverse
+                  theories, and the scientific possibilities of interdimensional
+                  travel.
+                </p>
+                <div class="card-tags">
+                  <span class="card-tag">Physics</span>
+                  <span class="card-tag">Cosmology</span>
+                  <span class="card-tag">Theoretical Physics</span>
+                </div>
+                <div class="card-action">
+                  <a href="portals-to-other-universe-2.html" class="card-btn">
                     <i class="fas fa-book-open"></i> Read More
                   </a>
                 </div>
@@ -2595,7 +2662,7 @@
           author: "Hopeless Romantic Coder",
         },
         {
-          text: "Are you a Pantone swatch? Because you’re the exact shade I’ve been searching for.",
+          text: "Are you a Pantone swatch? Because you're the exact shade I've been searching for.",
           author: "Color Enthusiast",
         },
         {
@@ -2617,17 +2684,17 @@
             "Exploring the fascinating world of metals and their significance in our daily lives and technology.",
           content: `
                     <p>Metals have always fascinated humankind with their unique properties and versatility. From the Bronze Age to the Silicon Age, metals have played a crucial role in shaping human civilization.</p>
-                    
+
                     <p>The journey to understanding metals begins with their atomic structure. Metals typically have one to three electrons in their outer shell, which they readily give up, making them excellent conductors of electricity and heat.</p>
-                    
+
                     <p>One of the most remarkable properties of metals is their strength. Unlike other materials, metals can withstand tremendous forces without breaking. This property makes them ideal for construction, transportation, and countless other applications.</p>
-                    
+
                     <p>Another fascinating aspect of metals is their ability to form alloys. By combining different metals, we can create materials with enhanced properties. For example, stainless steel combines iron with chromium and nickel to create a corrosion-resistant material.</p>
-                    
+
                     <p>In the modern world, metals are at the heart of technological advancement. From the copper in our electrical wiring to the lithium in our batteries, metals power our devices and infrastructure.</p>
-                    
+
                     <p>As we look to the future, metals will continue to play a vital role in emerging technologies like renewable energy, electric vehicles, and space exploration. The journey to a metal world is an ongoing adventure of discovery and innovation.</p>
-                    
+
                     <p>Read the full article on <a href="https://mokshcs.wordpress.com/2020/08/22/journey-to-a-metal-world/" target="_blank">my WordPress blog</a>.</p>
                 `,
           tags: ["Science", "Metals", "Technology"],
@@ -2644,15 +2711,15 @@
             "Exploring the latest trends and technologies that are shaping the future of web development.",
           content: `
                     <p>Web development has come a long way since the early days of static HTML pages. Today, we're seeing an explosion of new frameworks, tools, and methodologies that are transforming how we build for the web.</p>
-                    
+
                     <p>One of the most significant trends is the rise of JavaScript frameworks like React, Vue, and Angular. These frameworks have revolutionized frontend development by enabling component-based architectures and single-page applications.</p>
-                    
+
                     <p>On the backend, we're seeing a shift towards serverless architectures and microservices. These approaches allow developers to build scalable applications without worrying about infrastructure management.</p>
-                    
+
                     <p>Another exciting development is the emergence of WebAssembly, which allows code written in languages like C++ and Rust to run in the browser at near-native speed. This opens up new possibilities for performance-intensive applications.</p>
-                    
+
                     <p>As we look to the future, artificial intelligence and machine learning are poised to play an increasingly important role in web development. From automated code generation to personalized user experiences, AI has the potential to transform how we build and interact with web applications.</p>
-                    
+
                     <p>The future of web development is bright, with new technologies and approaches emerging all the time. As developers, it's an exciting time to be building for the web.</p>
                 `,
           tags: ["Web Development", "JavaScript", "React"],
@@ -2669,17 +2736,17 @@
             "A beginner's guide to understanding the fundamentals of machine learning and its applications.",
           content: `
                     <p>Machine learning is a subset of artificial intelligence that focuses on building systems that can learn from data and improve their performance over time without being explicitly programmed.</p>
-                    
+
                     <p>At its core, machine learning is about finding patterns in data. These patterns can be used to make predictions or decisions without human intervention.</p>
-                    
+
                     <p>There are three main types of machine learning: supervised learning, unsupervised learning, and reinforcement learning. Each approach has its own strengths and applications.</p>
-                    
+
                     <p>Supervised learning involves training a model on labeled data, where the correct answers are provided. This is commonly used for classification and regression tasks.</p>
-                    
+
                     <p>Unsupervised learning, on the other hand, deals with unlabeled data. The goal is to find hidden patterns or groupings in the data without any prior knowledge.</p>
-                    
+
                     <p>Reinforcement learning is a different approach where an agent learns to make decisions by interacting with an environment and receiving rewards or penalties for its actions.</p>
-                    
+
                     <p>Machine learning has countless applications, from recommendation systems and natural language processing to computer vision and autonomous vehicles. As the field continues to evolve, we can expect to see even more innovative applications in the future.</p>
                 `,
           tags: ["AI", "Machine Learning", "Data Science"],
@@ -3134,6 +3201,9 @@
         // Initialize mobile menu
         initMobileMenu();
 
+        // Initialize search functionality
+        initSearch();
+
         // Smooth scrolling for navigation
         document.querySelectorAll("nav a, .mobile-nav a").forEach((anchor) => {
           anchor.addEventListener("click", function (e) {
@@ -3473,8 +3543,8 @@
         function handleDownload() {
           // Create and trigger download
           const link = document.createElement("a");
-          link.href = "#"; // Replace with actual resume URL
-          link.download = "Moksh_Shah_Resume.pdf";
+          link.href = "Resume _MokshShah.pdf"; // Replace with actual resume URL
+          link.download = "Resume _MokshShah.pdf";
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
@@ -3696,94 +3766,15 @@
         }
       });
 
-      // Select elements
-      const searchInput = document.getElementById("search-input");
-      const searchResults = document.getElementById("search-results");
-      const showcaseCards = document.querySelectorAll(".showcase-card");
-
-      // Function to filter cards
-      function searchSite(query) {
-        let results = [];
-        const lowerQuery = query.toLowerCase();
-
-        showcaseCards.forEach((card) => {
-          const title = card.querySelector("h3").innerText.toLowerCase();
-          const desc = card.querySelector("p").innerText.toLowerCase();
-
-          if (title.includes(lowerQuery) || desc.includes(lowerQuery)) {
-            results.push({
-              title: card.querySelector("h3").innerText,
-              category: card.dataset.category,
-              content:
-                card.querySelector("p").innerText.substring(0, 100) + "...",
-              link:
-                card.querySelector(".card-action a, .card-action button")
-                  ?.href || "#",
-            });
-          }
-        });
-
-        return results;
-      }
-
-      // Listen to input typing
-      searchInput.addEventListener("input", function () {
-        const query = this.value.trim();
-        searchResults.innerHTML = "";
-
-        if (query.length === 0) {
-          searchResults.classList.remove("active");
-          return;
-        }
-
-        const results = searchSite(query);
-
-        if (results.length === 0) {
-          searchResults.innerHTML = `<div class="no-results">No results found</div>`;
-        } else {
-          results.forEach((item) => {
-            const div = document.createElement("div");
-            div.classList.add("search-result-item");
-            div.innerHTML = `
-          <div class="search-result-title">${item.title}</div>
-          <div class="search-result-category">${item.category}</div>
-          <div class="search-result-content">${item.content}</div>
-        `;
-            div.onclick = () => {
-              if (item.link && item.link !== "#") {
-                window.location.href = item.link;
-              }
-            };
-            searchResults.appendChild(div);
-          });
-        }
-
-        searchResults.classList.add("active");
-      });
-
-      // Hide results if clicked outside
-      document.addEventListener("click", (e) => {
-        if (!e.target.closest(".search-container")) {
-          searchResults.classList.remove("active");
-        }
-      });
-
-      // Fixed Search Functionality
+      // Search functionality
       function initSearch() {
-        // Get references to the search elements
         const searchInput = document.getElementById("search-input");
         const searchResults = document.getElementById("search-results");
+        const searchToggle = document.getElementById("search-toggle");
+        const showcaseCards = document.querySelectorAll(".showcase-card");
+        const skillItems = document.querySelectorAll(".skill-item");
 
-        // Mobile search elements
-        const mobileSearchInput = document.getElementById(
-          "mobile-search-input"
-        );
-        const mobileSearchResults = document.getElementById(
-          "mobile-search-results"
-        );
-
-        if (!searchInput || !searchResults) return;
-
+        // Search index data
         const searchIndex = [
           {
             title: "HTML/CSS",
@@ -3885,48 +3876,44 @@
           },
         ];
 
-        // Function to handle search for any input and results container
-        function setupSearch(inputElement, resultsElement) {
-          if (!inputElement || !resultsElement) return;
-
-          inputElement.addEventListener("input", (e) => {
-            const query = e.target.value.toLowerCase().trim();
-
-            if (query.length < 2) {
-              resultsElement.classList.remove("active");
-              return;
-            }
-
-            // Filter results
-            const results = searchIndex.filter((item) => {
-              return (
-                item.title.toLowerCase().includes(query) ||
-                item.content.toLowerCase().includes(query) ||
-                item.category.toLowerCase().includes(query)
-              );
-            });
-
-            // Display results
-            displaySearchResults(results, resultsElement, inputElement);
-          });
-
-          // Close search when clicking outside
-          document.addEventListener("click", (e) => {
-            if (
-              !inputElement.contains(e.target) &&
-              !resultsElement.contains(e.target)
-            ) {
-              resultsElement.classList.remove("active");
+        // Mobile search toggle
+        if (searchToggle) {
+          searchToggle.addEventListener("click", function () {
+            if (window.innerWidth <= 900) {
+              searchInput.classList.toggle("active");
+              if (searchInput.classList.contains("active")) {
+                searchInput.focus();
+              }
             }
           });
         }
 
-        function displaySearchResults(results, resultsElement, inputElement) {
+        // Function to handle search
+        function handleSearch(query) {
+          if (query.length < 2) {
+            searchResults.classList.remove("active");
+            return;
+          }
+
+          // Filter results
+          const results = searchIndex.filter((item) => {
+            return (
+              item.title.toLowerCase().includes(query) ||
+              item.content.toLowerCase().includes(query) ||
+              item.category.toLowerCase().includes(query)
+            );
+          });
+
+          // Display results
+          displaySearchResults(results);
+        }
+
+        function displaySearchResults(results) {
           if (results.length === 0) {
-            resultsElement.innerHTML =
+            searchResults.innerHTML =
               '<div class="no-results">No results found</div>';
           } else {
-            resultsElement.innerHTML = results
+            searchResults.innerHTML = results
               .map(
                 (result) => `
                                 <div class="search-result-item" data-url="${result.url}">
@@ -3939,31 +3926,69 @@
               .join("");
 
             // Add click event to result items
-            const resultItems = resultsElement.querySelectorAll(
+            const resultItems = searchResults.querySelectorAll(
               ".search-result-item"
             );
             resultItems.forEach((item) => {
               item.addEventListener("click", () => {
                 window.location.href = item.getAttribute("data-url");
-                resultsElement.classList.remove("active");
-                inputElement.value = "";
+                searchResults.classList.remove("active");
+                searchInput.value = "";
+
+                // Hide search input on mobile after selection
+                if (window.innerWidth <= 900) {
+                  searchInput.classList.remove("active");
+                }
               });
             });
           }
 
-          resultsElement.classList.add("active");
+          searchResults.classList.add("active");
         }
 
-        // Setup both desktop and mobile search
-        setupSearch(searchInput, searchResults);
-        setupSearch(mobileSearchInput, mobileSearchResults);
+        // Listen to input typing
+        searchInput.addEventListener("input", function () {
+          const query = this.value.toLowerCase().trim();
+          handleSearch(query);
+        });
+
+        // Hide results when clicking outside
+        document.addEventListener("click", (e) => {
+          if (
+            !searchInput.contains(e.target) &&
+            !searchResults.contains(e.target) &&
+            !searchToggle.contains(e.target)
+          ) {
+            searchResults.classList.remove("active");
+
+            // Hide search input on mobile when clicking outside
+            if (window.innerWidth <= 900 && !searchInput.contains(e.target)) {
+              searchInput.classList.remove("active");
+            }
+          }
+        });
+
+        // Handle Enter key to navigate to first result
+        searchInput.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            const firstResult = searchResults.querySelector(
+              ".search-result-item"
+            );
+            if (firstResult) {
+              window.location.href = firstResult.getAttribute("data-url");
+              searchResults.classList.remove("active");
+              searchInput.value = "";
+
+              // Hide search input on mobile after selection
+              if (window.innerWidth <= 900) {
+                searchInput.classList.remove("active");
+              }
+            }
+          }
+        });
       }
 
-      // Initialize search when DOM is loaded
-      document.addEventListener("DOMContentLoaded", function () {
-        initSearch();
-        // Your other initialization code
-      });
       // Initialize resume download functionality
       initResumeDownload();
     </script>

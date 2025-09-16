@@ -188,6 +188,16 @@
       .logo-icon {
         margin-right: 10px;
         font-size: 28px;
+        animation: spin 10s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
       }
 
       nav a {
@@ -221,10 +231,45 @@
         text-shadow: 0 0 10px var(--accent-color);
       }
 
+      /* Blog Container with Skills-like Styling */
+      .blog-container {
+        padding: 80px 20px;
+        background: var(--card-bg);
+        border-radius: 20px;
+        margin: 50px auto;
+        max-width: 1200px;
+        border: 1px solid var(--card-border);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .blog-container .blog-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 60px;
+        color: var(--text-color);
+        position: relative;
+      }
+
+      .blog-container .blog-title::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--accent-color),
+          var(--secondary-accent)
+        );
+        border-radius: 2px;
+      }
+
       /* Blog Post Styles */
       .blog-post-container {
         max-width: 900px;
-        margin: 100px auto;
+        margin: 0 auto;
         padding: 0 20px;
       }
 
@@ -262,6 +307,11 @@
         border-radius: 15px;
         margin-bottom: 30px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      .blog-image:hover {
+        transform: scale(1.02);
       }
 
       .blog-content {
@@ -286,6 +336,9 @@
         margin: 30px 0;
         font-style: italic;
         opacity: 0.9;
+        background: var(--card-bg);
+        padding: 20px;
+        border-radius: 0 10px 10px 0;
       }
 
       .blog-content a {
@@ -374,6 +427,7 @@
         background: var(--tag-bg);
         color: var(--accent-color);
         transition: all 0.3s;
+        text-decoration: none;
       }
 
       .social-link:hover {
@@ -449,6 +503,11 @@
           flex-direction: column;
           gap: 20px;
         }
+
+        .blog-container {
+          padding: 60px 15px;
+          margin: 30px auto;
+        }
       }
 
       @media (max-width: 600px) {
@@ -466,6 +525,167 @@
           left: 20px;
           flex-direction: row;
         }
+
+        nav a {
+          margin: 0 8px;
+          font-size: 14px;
+        }
+      }
+
+      /* Additional styles for this blog */
+      .mission-highlight {
+        background: var(--card-bg);
+        padding: 25px;
+        border-radius: 15px;
+        margin: 30px 0;
+        border-left: 4px solid var(--accent-color);
+      }
+
+      .mission-details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin: 30px 0;
+      }
+
+      .detail-card {
+        background: var(--card-bg);
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      .detail-card h4 {
+        color: var(--accent-color);
+        margin-bottom: 10px;
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 30px 0;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--card-border);
+      }
+
+      .comparison-table th {
+        background: var(--tag-bg);
+        color: var(--tag-text);
+      }
+
+      .image-caption {
+        text-align: center;
+        font-style: italic;
+        margin-top: -20px;
+        margin-bottom: 30px;
+        opacity: 0.8;
+        font-size: 0.9rem;
+      }
+
+      .fun-fact {
+        background: var(--tag-bg);
+        padding: 20px;
+        border-radius: 10px;
+        margin: 25px 0;
+        border-left: 4px solid var(--accent-color);
+      }
+
+      .fun-fact h4 {
+        color: var(--accent-color);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .stat-highlight {
+        font-size: 2.5rem;
+        font-weight: bold;
+        background: var(--stat-number);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin: 15px 0;
+      }
+
+      .stat-label {
+        color: var(--stat-label);
+        font-size: 1rem;
+        margin-bottom: 25px;
+      }
+
+      .moon-timeline {
+        display: flex;
+        flex-direction: column;
+        margin: 40px 0;
+        position: relative;
+      }
+
+      .timeline-item {
+        display: flex;
+        margin-bottom: 30px;
+        position: relative;
+      }
+
+      .timeline-date {
+        min-width: 120px;
+        font-weight: bold;
+        color: var(--accent-color);
+        margin-right: 20px;
+      }
+
+      .timeline-content {
+        background: var(--card-bg);
+        padding: 20px;
+        border-radius: 10px;
+        flex: 1;
+        border-left: 3px solid var(--accent-color);
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: 114px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--accent-color);
+      }
+
+      .timeline-item:last-child::before {
+        display: none;
+      }
+
+      .timeline-item::after {
+        content: "";
+        position: absolute;
+        left: 110px;
+        top: 15px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--accent-color);
+      }
+
+      .science-highlight {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin: 20px 0;
+        padding: 15px;
+        background: var(--card-bg);
+        border-radius: 10px;
+      }
+
+      .science-icon {
+        font-size: 2rem;
+        color: var(--accent-color);
+        min-width: 50px;
+        text-align: center;
       }
     </style>
   </head>
@@ -481,7 +701,7 @@
     <div id="main-content">
       <header>
         <div class="logo">
-          <i class="fas fa-code logo-icon"></i>
+          <i class="fas fa-rocket logo-icon"></i>
           <a href="index.html" style="color: inherit; text-decoration: none"
             >Moksh Shah</a
           >
@@ -490,158 +710,398 @@
           <a href="index.html#home">Home</a>
           <a href="index.html#skills">Skills</a>
           <a href="index.html#showcase">Portfolio</a>
+          <a href="index.html#testimonials">Testimonials</a>
           <a href="index.html#contact">Contact</a>
         </nav>
       </header>
 
-      <div class="blog-post-container">
-        <div class="blog-header">
-          <h1 class="blog-title" id="blog-title">Enceladus: The Ocean Moon</h1>
-          <div class="blog-meta">
-            <span><i class="far fa-calendar"></i> March 10, 2023</span>
-            <span><i class="far fa-folder"></i> Space & Science</span>
-            <span><i class="far fa-clock"></i> 6 min read</span>
+      <div class="blog-container">
+        <h2 class="blog-title">
+          Voyage to an Icy Moon: The Secrets of Enceladus
+        </h2>
+
+        <div class="blog-post-container">
+          <div class="blog-header">
+            <div class="blog-meta">
+              <span><i class="far fa-calendar"></i> March 10, 2023</span>
+              <span><i class="far fa-folder"></i> Space & Science</span>
+              <span><i class="far fa-clock"></i> 12 min read</span>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1446776877081-d282a0f896e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80"
+              alt="Enceladus: The Ocean Moon"
+              class="blog-image"
+            />
           </div>
-          <img
-            src="https://images.unsplash.com/photo-1446776877081-d282a0f896e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80"
-            alt="Enceladus: The Ocean Moon"
-            class="blog-image"
-          />
-        </div>
 
-        <div class="blog-content">
-          <p>
-            Humanity's interest in the universe has been intriguing and
-            enduring. Humans are driven to explore the unknown, discover new
-            worlds, push the boundaries of our scientific and technical limits,
-            and then push further. The intangible desire to explore and
-            challenge the boundaries of what we know and where we have been has
-            provided benefits to our society for centuries.
-          </p>
+          <div class="blog-content">
+            <p>
+              Humanity's fascination with the cosmos represents one of our most
+              profound and enduring quests. We are driven to explore the
+              unknown, discover new worlds, push the boundaries of our
+              scientific and technical limits, and then push further. This
+              intangible desire to explore has provided countless benefits to
+              our society for centuries, from technological advancements to
+              deeper philosophical understanding of our place in the universe.
+            </p>
 
-          <p>
-            Since the mid-20th century, active ongoing research has taken place
-            to look for signs of extraterrestrial life. This encompasses a probe
-            for current and historic extraterrestrial life, and a narrower
-            search for extraterrestrial intelligent life. Depending on the
-            category of search, methods range from the analysis of telescope and
-            specimen data to radios used to detect and send communication
-            signals.
-          </p>
+            <div class="mission-highlight">
+              <p>
+                Among the most exciting developments in modern astronomy is the
+                discovery of ocean worlds within our own solar system—planetary
+                bodies that harbor vast subsurface oceans beneath icy shells.
+                These environments may represent our best chance of finding
+                extraterrestrial life within our celestial neighborhood.
+              </p>
+            </div>
 
-          <h2>The Building Blocks of Life</h2>
+            <h2>The Building Blocks of Life</h2>
 
-          <p>
-            For life to exist on a planet, there are some elements needed,
-            primarily carbon, hydrogen, oxygen, nitrogen, phosphorus and sulfur
-            (C,H,O,N,P and S). An intrinsic compound is water (H₂O), which is
-            pivotal factor for life to exist on a planet. In addition, the
-            scientists are on a hunt for liquid water which plays a crucial role
-            in biochemical reactions that sustain living organisms. So, one can
-            conclude by saying that "Pure Water is the World's First and
-            Foremost Medicine."
-          </p>
+            <p>
+              For life as we know it to exist, certain fundamental elements are
+              required: primarily carbon, hydrogen, oxygen, nitrogen,
+              phosphorus, and sulfur (CHONPS). Water (H₂O) plays a particularly
+              crucial role as the universal solvent that facilitates the
+              biochemical reactions that sustain living organisms.
+            </p>
 
-          <h2>Enceladus: The Ocean Moon</h2>
+            <div class="mission-details">
+              <div class="detail-card">
+                <div class="stat-highlight">6</div>
+                <div class="stat-label">
+                  Key elements needed for life (CHONPS)
+                </div>
+              </div>
+              <div class="detail-card">
+                <div class="stat-highlight">-200°C</div>
+                <div class="stat-label">Surface temperature of Enceladus</div>
+              </div>
+              <div class="detail-card">
+                <div class="stat-highlight">10 km</div>
+                <div class="stat-label">Estimated ocean depth</div>
+              </div>
+            </div>
 
-          <p>
-            This icy moon, discovered by Sir William Herschel, is an interesting
-            celestial body where life could possibly exist. Enceladus is the
-            brightest world in the solar system, which is related to Saturn's E
-            ring. Cassini, a spacecraft which studied the details about
-            Enceladus (Natural satellite of Saturn), was one of the most
-            pioneering missions ever launched into space.
-          </p>
+            <p>
+              The search for extraterrestrial life has therefore focused on
+              locations where liquid water can exist, along with sources of
+              energy and organic compounds. While Mars once received most of the
+              attention, recent discoveries have revealed that several moons in
+              the outer solar system may be even more promising candidates for
+              hosting life.
+            </p>
 
-          <blockquote>
-            "The discovery of ocean was made due to the wobbling observed as it
-            orbit Saturn."
-          </blockquote>
+            <h2>Enceladus: Saturn's Icy Wonder</h2>
 
-          <p>
-            The cracked terrain on the surface of Enceladus' active south pole
-            is in constant motion, as the cracks pinch and pull from
-            gravitational forces. The area is littered with tiny ice boulders
-            and surfaces carved by tectonic patterns.
-          </p>
+            <p>
+              Discovered by William Herschel in 1789, Enceladus is one of
+              Saturn's innermost moons. For nearly two centuries, it remained
+              just a tiny point of light in astronomers' telescopes—until the
+              Cassini mission revolutionized our understanding of this
+              fascinating world.
+            </p>
 
-          <h2>The Cassini Spacecraft</h2>
+            <blockquote>
+              "Enceladus is the brightest world in the solar system, reflecting
+              almost 100% of the sunlight that strikes its icy surface."
+            </blockquote>
 
-          <p>
-            Cassini revealed many secrets about Enceladus, at the top being that
-            there's complex terrain, almost entirely free of craters. The
-            composite infrared spectrometer, shows the south pole is warmer than
-            anticipated. The CIRS instrument measured the surface temperature
-            was -93°C, whereas temperature near the equator were found to reach
-            -193°C.
-          </p>
+            <p>
+              This small moon, only about 500 kilometers (310 miles) in
+              diameter, has become one of the most compelling destinations in
+              our solar system for astrobiological research. Despite its small
+              size, Enceladus exhibits extraordinary geological activity and
+              hosts a global subsurface ocean that may possess all the
+              ingredients necessary for life.
+            </p>
 
-          <p>
-            In addition, Cassini images show icy jets and towering plumes
-            ejecting large quantities of particles at high speed. The Ion and
-            Neutral Mass Spectrometer (INMS) analyzed particles and gases in the
-            plume, which contained water vapor, along with carbon dioxide,
-            carbon monoxide and organic materials.
-          </p>
+            <img
+              src="https://www.innovationnewsnetwork.com/wp-content/uploads/2023/05/shutterstockDotted-Yeti_621170177-696x392.jpg"
+              alt="Saturn and its moons"
+              class="blog-image"
+            />
+            <p class="image-caption">
+              Saturn and its magnificent ring system, with Enceladus orbiting
+              within the E ring
+            </p>
 
-          <h2>The Geysers of Enceladus</h2>
+            <h2>The Cassini Mission: Revolutionizing Our Understanding</h2>
 
-          <p>
-            The geysers could provide evidence that liquid water is trapped
-            under the thick icy crust of Enceladus. The geysers emanate from
-            fractures running along the moon's south pole, spewing out water
-            vapor at approximately 400 meters per second.
-          </p>
+            <p>
+              The Cassini-Huygens mission, a collaboration between NASA, the
+              European Space Agency, and the Italian Space Agency, was one of
+              the most ambitious space missions ever undertaken. Launched in
+              1997, the spacecraft arrived at Saturn in 2004 and spent over 13
+              years studying the Saturnian system in unprecedented detail.
+            </p>
 
-          <p>
-            The jets of ice and gas coming from the Enceladus' south pole also
-            contains molecular hydrogen, which gives us a hint of chemical
-            characteristic of hydrothermal activity by the gravitational pull of
-            Saturn. It harbors a saltwater ocean engulfed in a frozen crust
-            which suggests that it has the right conditions to give rise to
-            microbial life.
-          </p>
+            <div class="moon-timeline">
+              <div class="timeline-item">
+                <div class="timeline-date">2005</div>
+                <div class="timeline-content">
+                  <h4>Discovery of Plumes</h4>
+                  <p>
+                    Cassini's first close flyby of Enceladus reveals towering
+                    plumes of water vapor and ice particles erupting from the
+                    south polar region.
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">2008</div>
+                <div class="timeline-content">
+                  <h4>Salt Detection</h4>
+                  <p>
+                    Analysis of plume particles confirms the presence of sodium
+                    salts, suggesting the plumes originate from a liquid ocean.
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">2014</div>
+                <div class="timeline-content">
+                  <h4>Global Ocean Confirmed</h4>
+                  <p>
+                    Detailed gravity measurements and analysis of the moon's
+                    libration confirm the existence of a global subsurface
+                    ocean.
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">2015</div>
+                <div class="timeline-content">
+                  <h4>Hydrothermal Activity</h4>
+                  <p>
+                    Detection of nanoscale silica grains provides strong
+                    evidence for ongoing hydrothermal activity on the seafloor.
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">2017</div>
+                <div class="timeline-content">
+                  <h4>Molecular Hydrogen</h4>
+                  <p>
+                    Cassini's final dive through the plumes detects molecular
+                    hydrogen, a key indicator of hydrothermal processes that
+                    could support life.
+                  </p>
+                </div>
+              </div>
+            </div>
 
-          <h2>The Search for Extraterrestrial Life</h2>
+            <h2>The South Polar Geysers: Windows to an Underground Ocean</h2>
 
-          <p>
-            Enceladus' geysers makes us more interested in the search for
-            extraterrestrial organisms ever since the Cassini detected them. The
-            plumes are rich with water and organic molecules, and the force with
-            which they gush from the surface suggests that they are driven by a
-            hydrothermal system which are two and a half times as powerful as
-            one that powers the Yellowstone's geysers and bubbling hot springs.
-          </p>
+            <p>
+              One of Cassini's most spectacular discoveries was the geysers
+              erupting from Enceladus's south polar region. These enormous
+              plumes, extending hundreds of kilometers into space, are composed
+              primarily of water vapor, ice particles, and various organic
+              compounds.
+            </p>
 
-          <p>
-            Unluckily, Cassini fell into Saturn's atmosphere thereby ending its
-            2-decade mission. Thus, I name this mission as Cassini - The Journey
-            in Search of Life.
-          </p>
+            <div class="science-highlight">
+              <div class="science-icon">
+                <i class="fas fa-water"></i>
+              </div>
+              <div>
+                <h4>Plume Composition</h4>
+                <p>
+                  The plumes contain water vapor, carbon dioxide, carbon
+                  monoxide, ammonia, various hydrocarbons, and surprisingly,
+                  tiny grains of silica—evidence of hydrothermal activity on the
+                  ocean floor.
+                </p>
+              </div>
+            </div>
 
-          <p>
-            The discoveries made by Cassini have fundamentally changed our
-            understanding of where life might exist in our solar system, opening
-            up new possibilities for future exploration and the search for
-            extraterrestrial life.
-          </p>
-        </div>
+            <div class="science-highlight">
+              <div class="science-icon">
+                <i class="fas fa-fire"></i>
+              </div>
+              <div>
+                <h4>Eruption Mechanism</h4>
+                <p>
+                  The geysers are powered by tidal heating from Saturn's
+                  gravitational pull, which creates fractures (called "tiger
+                  stripes") in the ice crust through which pressurized water
+                  erupts into space.
+                </p>
+              </div>
+            </div>
 
-        <div class="blog-tags">
-          <span class="blog-tag">Space</span>
-          <span class="blog-tag">Science</span>
-          <span class="blog-tag">Astronomy</span>
-          <span class="blog-tag">Exploration</span>
-          <span class="blog-tag">NASA</span>
-        </div>
+            <p>
+              These plumes provide a unique opportunity to sample the subsurface
+              ocean without having to land on the surface or drill through the
+              ice. Cassini flew through these plumes multiple times, using its
+              onboard instruments to analyze their composition.
+            </p>
 
-        <div class="blog-navigation">
-          <a href="blog-post.html" class="nav-btn">
-            <i class="fas fa-arrow-left"></i> Previous Post
-          </a>
-          <a href="index.html#showcase" class="nav-btn">
-            Back to Portfolio <i class="fas fa-arrow-right"></i>
-          </a>
+            <img
+              src="https://imgix.bustle.com/uploads/getty/2023/1/9/6d356af1-e9c9-40f7-9fbf-428e89df3ea8-getty-1217774642.jpg?w=400&h=300&fit=crop&crop=faces&dpr=2"
+              alt="Geysers on Enceladus"
+              class="blog-image"
+            />
+            <p class="image-caption">
+              Artist's depiction of water geysers erupting from Enceladus's
+              south polar region
+            </p>
+
+            <h2>The Subsurface Ocean: A Hidden Aquatic World</h2>
+
+            <p>
+              Beneath Enceladus's icy crust lies a global ocean of liquid water,
+              estimated to be about 10 kilometers (6 miles) deep. This vast body
+              of water is believed to be in contact with a rocky core, creating
+              conditions similar to those found around hydrothermal vents on
+              Earth's ocean floor.
+            </p>
+
+            <div class="mission-details">
+              <div class="detail-card">
+                <h4><i class="fas fa-ruler-combined"></i> Ocean Depth</h4>
+                <p>
+                  Approximately 10 km (6 miles), similar to the deepest parts of
+                  Earth's oceans
+                </p>
+              </div>
+              <div class="detail-card">
+                <h4>
+                  <i class="fas fa-temperature-low"></i> Water Temperature
+                </h4>
+                <p>
+                  Likely around 0°C (32°F) near the ice interface, but
+                  potentially much warmer near hydrothermal vents
+                </p>
+              </div>
+              <div class="detail-card">
+                <h4><i class="fas fa-weight"></i> Salinity</h4>
+                <p>
+                  Similar to Earth's oceans, with dissolved salts and organic
+                  compounds
+                </p>
+              </div>
+            </div>
+
+            <h2>Hydrothermal Activity: The Engine for Life?</h2>
+
+            <p>
+              The detection of molecular hydrogen and nanoscale silica grains in
+              Enceladus's plumes provides compelling evidence for hydrothermal
+              activity on the seafloor. On Earth, hydrothermal vents support
+              vibrant ecosystems completely independent of sunlight, powered
+              instead by chemosynthesis.
+            </p>
+
+            <blockquote>
+              "The hydrothermal systems on Enceladus may be two and a half times
+              as powerful as those that power Yellowstone's geysers and hot
+              springs."
+            </blockquote>
+
+            <p>
+              These environments on Earth host exotic life forms including tube
+              worms, giant clams, and specialized bacteria that derive energy
+              from chemical reactions rather than photosynthesis. The presence
+              of similar systems on Enceladus raises the tantalizing possibility
+              that life could have emerged there as well.
+            </p>
+
+            <div class="fun-fact">
+              <h4><i class="fas fa-lightbulb"></i> Did You Know?</h4>
+              <p>
+                Enceladus's ocean is believed to have been stable for tens of
+                millions of years—plenty of time for life to emerge and evolve,
+                based on our understanding of how quickly life appeared on
+                Earth.
+              </p>
+            </div>
+
+            <h2>The Search for Life: Future Missions</h2>
+
+            <p>
+              The discoveries at Enceladus have made it a prime target for
+              future missions specifically designed to search for evidence of
+              life. Several mission concepts are currently under consideration
+              by space agencies around the world:
+            </p>
+
+            <ul style="margin-left: 30px; margin-bottom: 25px">
+              <li>
+                <strong>Enceladus Life Finder (ELF):</strong> A proposed mission
+                that would fly through the plumes multiple times with more
+                sensitive instruments specifically designed to detect signs of
+                life.
+              </li>
+              <li>
+                <strong>Enceladus Explorer:</strong> A concept that would land
+                on the surface, melt through the ice, and deploy a submersible
+                to explore the ocean directly.
+              </li>
+              <li>
+                <strong>Journey to Enceladus and Titan (JET):</strong> A mission
+                that would study both Enceladus and Titan, another moon of
+                Saturn with potential habitability.
+              </li>
+            </ul>
+
+            <img
+              src="https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2024/03/exploring_icy_moons/25998402-1-eng-GB/Exploring_icy_moons_pillars.jpg"
+              alt="Future mission to Enceladus"
+              class="blog-image"
+            />
+            <p class="image-caption">
+              Concept art for a future mission to explore Enceladus's subsurface
+              ocean
+            </p>
+
+            <h2>Conclusion: A New Frontier in the Search for Life</h2>
+
+            <p>
+              The exploration of Enceladus has fundamentally transformed our
+              understanding of where life might exist in the universe. This
+              small, icy moon has demonstrated that habitable environments can
+              exist in unexpected places, far from the traditional "habitable
+              zone" where liquid water can exist on a planet's surface.
+            </p>
+
+            <div class="mission-highlight">
+              <p>
+                Enceladus represents perhaps our best opportunity to answer one
+                of humanity's most profound questions: Are we alone in the
+                universe? With its accessible plumes offering a direct sample of
+                a potentially habitable ocean, this tiny moon may hold the key
+                to discovering the first evidence of extraterrestrial life.
+              </p>
+            </div>
+
+            <p>
+              As we continue to study data from Cassini and plan future missions
+              to this fascinating world, we stand on the brink of discoveries
+              that could forever change our understanding of life's prevalence
+              in the cosmos. The voyage to this icy moon has only just begun,
+              and its secrets await the next generation of explorers.
+            </p>
+          </div>
+
+          <div class="blog-tags">
+            <span class="blog-tag">Space Exploration</span>
+            <span class="blog-tag">Astronomy</span>
+            <span class="blog-tag">Enceladus</span>
+            <span class="blog-tag">Cassini Mission</span>
+            <span class="blog-tag">Astrobiology</span>
+            <span class="blog-tag">NASA</span>
+          </div>
+
+          <div class="blog-navigation">
+            <a href="blog-double-edged-sword.html" class="nav-btn">
+              <i class="fas fa-arrow-left"></i> Previous Post
+            </a>
+            <a href="index.html#showcase" class="nav-btn">
+              Back to Portfolio <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -769,9 +1229,10 @@
           const scrollTop = document.documentElement.scrollTop;
           const scrollHeight =
             document.documentElement.scrollHeight - window.innerHeight;
-          document.getElementById("progress-bar").style.width = `${
-            (scrollTop / scrollHeight) * 100
-          }%`;
+          document.getElementById("progress-bar").style.width = `${(
+            (scrollTop / scrollHeight) *
+            100
+          ).toFixed(2)}%`;
 
           // Show/hide back to top button
           const backToTop = document.getElementById("back-to-top");
