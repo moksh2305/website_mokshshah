@@ -859,6 +859,131 @@
         opacity: 0.8;
       }
 
+      /* ------- TESTIMONIAL MODAL (IMPROVED) ------- */
+      .testimonial-modal-content {
+        background: var(--card-bg);
+        margin: 50px auto;
+        padding: 40px;
+        border-radius: 20px;
+        max-width: 650px;
+        position: relative;
+        border: 1px solid var(--card-border);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(12px);
+        animation: fadeInScale 0.4s ease;
+      }
+
+      .testimonial-modal-content h2 {
+        text-align: center;
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+        color: var(--accent-color);
+        font-weight: 700;
+      }
+
+      .testimonial-form {
+        display: grid;
+        gap: 20px;
+      }
+
+      .testimonial-form label {
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: var(--text-color);
+      }
+
+      .testimonial-form input,
+      .testimonial-form textarea {
+        width: 100%;
+        padding: 14px 16px;
+        border-radius: 12px;
+        border: 1px solid var(--card-border);
+        background: var(--bg-color);
+        color: var(--text-color);
+        font-size: 15px;
+        transition: all 0.3s ease;
+      }
+
+      .testimonial-form input:focus,
+      .testimonial-form textarea:focus {
+        border-color: var(--accent-color);
+        box-shadow: 0 0 0 3px var(--shadow-color);
+        outline: none;
+      }
+
+      textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .add-testimonial-btn {
+        display: block;
+        margin: 20px auto 0;
+        padding: 14px 28px;
+        background: var(--button-bg);
+        color: var(--button-text);
+        border: none;
+        border-radius: 30px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 15px;
+        box-shadow: 0 5px 18px var(--shadow-color);
+      }
+
+      .add-testimonial-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px var(--shadow-color);
+      }
+
+      .avatar-selection {
+        display: flex;
+        gap: 12px;
+        margin: 10px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .avatar-option {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: all 0.3s;
+        object-fit: cover;
+      }
+
+      .avatar-option:hover {
+        transform: scale(1.1);
+        border-color: var(--secondary-accent);
+      }
+
+      .avatar-option.selected {
+        border-color: var(--accent-color);
+        transform: scale(1.15);
+        box-shadow: 0 0 12px var(--shadow-color);
+      }
+
+      .form-error {
+        color: #ff6b6b;
+        font-size: 0.85rem;
+        margin-top: 5px;
+        display: none;
+      }
+
+      /* Small modal animation */
+      @keyframes fadeInScale {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
       /* Blog Post Styles */
       .blog-post {
         display: none;
@@ -2473,7 +2598,7 @@
         <div class="testimonials-container">
           <div class="testimonial-card">
             <div class="testimonial-content">
-              "Moksh delivered an exceptional e-commerce platform that exceeded
+              "Moksh delivered an exceptionally great portfolio that exceeded
               our expectations. His attention to detail and technical expertise
               are remarkable."
             </div>
@@ -2484,8 +2609,8 @@
                 class="author-avatar"
               />
               <div class="author-details">
-                <h4>James Wilson</h4>
-                <p class="author-role">CEO, TechCorp</p>
+                <h4>Manak Sanghavi</h4>
+                <p class="author-role">Student, Belgium</p>
               </div>
             </div>
           </div>
@@ -2503,7 +2628,7 @@
                 class="author-avatar"
               />
               <div class="author-details">
-                <h4>Sarah Johnson</h4>
+                <h4>Binal Shah</h4>
                 <p class="author-role">Product Manager, InnovateCo</p>
               </div>
             </div>
@@ -2528,7 +2653,68 @@
             </div>
           </div>
         </div>
+
+        <button class="add-testimonial-btn" id="open-testimonial-btn">
+          Add Your Thoughts
+        </button>
       </section>
+
+      <!-- Testimonial Modal -->
+      <div id="testimonial-modal" class="modal" style="display: none">
+        <div class="testimonial-modal-content">
+          <button class="close-modal" id="close-testimonial-modal">
+            &times;
+          </button>
+          <h2>Add Your Testimonial</h2>
+
+          <form id="testimonial-form" class="testimonial-form">
+            <input
+              type="text"
+              id="testimonial-name"
+              placeholder="Your Name"
+              required
+            />
+            <input
+              type="text"
+              id="testimonial-role"
+              placeholder="Your Role"
+              required
+            />
+            <textarea
+              id="testimonial-text"
+              placeholder="Your Testimonial"
+              required
+              style="height: 130px"
+            ></textarea>
+
+            <!-- Avatar Selection -->
+            <div class="avatar-selection">
+              <img
+                src="https://api.dicebear.com/6.x/bottts/svg?seed=Hero"
+                class="avatar-option"
+                data-avatar="https://api.dicebear.com/6.x/bottts/svg?seed=Hero"
+              />
+              <img
+                src="https://api.dicebear.com/6.x/bottts/svg?seed=Robot"
+                class="avatar-option"
+                data-avatar="https://api.dicebear.com/6.x/bottts/svg?seed=Robot"
+              />
+              <img
+                src="https://api.dicebear.com/6.x/bottts/svg?seed=Alien"
+                class="avatar-option"
+                data-avatar="https://api.dicebear.com/6.x/bottts/svg?seed=Alien"
+              />
+              <img
+                src="https://api.dicebear.com/6.x/bottts/svg?seed=Lego"
+                class="avatar-option"
+                data-avatar="https://api.dicebear.com/6.x/bottts/svg?seed=Lego"
+              />
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Testimonial</button>
+          </form>
+        </div>
+      </div>
 
       <!-- Contact Section -->
       <div class="toast-container" id="toast-container"></div>
@@ -3208,6 +3394,9 @@
         // Initialize search functionality
         initSearch();
 
+        // Initialize testimonial modal
+        initTestimonialModal();
+
         // Smooth scrolling for navigation
         document.querySelectorAll("nav a, .mobile-nav a").forEach((anchor) => {
           anchor.addEventListener("click", function (e) {
@@ -3769,6 +3958,82 @@
           document.body.style.overflow = "hidden";
         }
       });
+
+      function initTestimonialModal() {
+        const testimonialModal = document.getElementById("testimonial-modal");
+        const openBtn = document.getElementById("open-testimonial-btn"); // Fixed ID
+        const closeBtn = document.getElementById("close-testimonial-modal");
+
+        if (!openBtn || !testimonialModal) return;
+
+        openBtn.addEventListener("click", () => {
+          testimonialModal.style.display = "block";
+        });
+
+        closeBtn.addEventListener("click", () => {
+          testimonialModal.style.display = "none";
+        });
+
+        window.addEventListener("click", (e) => {
+          if (e.target === testimonialModal) {
+            testimonialModal.style.display = "none";
+          }
+        });
+
+        // Avatar selection
+        const avatarOptions = document.querySelectorAll(".avatar-option");
+        let selectedAvatar =
+          "https://api.dicebear.com/6.x/bottts/svg?seed=Default";
+
+        avatarOptions.forEach((option) => {
+          option.addEventListener("click", () => {
+            avatarOptions.forEach((opt) => opt.classList.remove("selected"));
+            option.classList.add("selected");
+            selectedAvatar = option.getAttribute("data-avatar");
+          });
+        });
+
+        // Form submission
+        document
+          .getElementById("testimonial-form")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById("testimonial-name").value;
+            const role = document.getElementById("testimonial-role").value;
+            const text = document.getElementById("testimonial-text").value;
+
+            // Add testimonial card
+            const container = document.querySelector(".testimonials-container");
+            const newCard = document.createElement("div");
+            newCard.classList.add("testimonial-card");
+            newCard.innerHTML = `
+            <div class="testimonial-content">"${text}"</div>
+            <div class="testimonial-author">
+              <img src="${selectedAvatar}" alt="${name}" class="author-avatar" />
+              <div class="author-details">
+                <h4>${name}</h4>
+                <p class="author-role">${role}</p>
+              </div>
+            </div>
+          `;
+            container.appendChild(newCard);
+
+            // Reset & close
+            this.reset();
+            avatarOptions.forEach((opt) => opt.classList.remove("selected"));
+            selectedAvatar =
+              "https://api.dicebear.com/6.x/bottts/svg?seed=Default";
+            testimonialModal.style.display = "none";
+
+            // Show success message
+            showToast(
+              "Success!",
+              "Your testimonial has been added.",
+              "success"
+            );
+          });
+      }
 
       // Search functionality
       function initSearch() {
