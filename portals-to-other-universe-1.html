@@ -701,30 +701,99 @@
         margin-bottom: 10px;
       }
 
-      /* Updated video container styles */
-      .blog-video-container {
+      /* Video Section Styles */
+      .blog-video-section {
+        margin: 40px 0;
+        padding: 25px;
+        background: var(--card-bg);
+        border-radius: 15px;
+        border-left: 4px solid var(--accent-color);
+      }
+
+      .video-container {
         position: relative;
         width: 100%;
-        padding-bottom: 56.25%; /* 16:9 aspect ratio for landscape */
-        border-radius: 15px;
-        margin-bottom: 20px; /* Reduced margin to fix spacing issue */
+        margin: 25px 0;
+      }
+
+      video {
+        width: 100%;
+        border-radius: 10px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        height: 0;
         overflow: hidden;
       }
 
-      .blog-video {
+      .video-wrapper iframe {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        border: 0;
-        border-radius: 15px;
+        border-radius: 10px;
       }
 
-      /* Adjust spacing after video */
-      .blog-header {
-        margin-bottom: 25px; /* Reduced from 40px to fix spacing */
+      .video-caption {
+        text-align: center;
+        font-style: italic;
+        margin-top: 15px;
+        opacity: 0.8;
+        font-size: 0.9rem;
+      }
+
+      .video-transcript {
+        margin-top: 25px;
+        border-top: 1px solid var(--card-border);
+        padding-top: 20px;
+      }
+
+      .transcript-toggle {
+        background: var(--tag-bg);
+        color: var(--tag-text);
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s;
+      }
+
+      .transcript-toggle:hover {
+        background: var(--accent-color);
+        color: var(--button-text);
+      }
+
+      .transcript-content {
+        margin-top: 15px;
+        padding: 15px;
+        background: var(--card-bg);
+        border-radius: 8px;
+        border: 1px solid var(--card-border);
+        display: none;
+      }
+
+      .transcript-content.show {
+        display: block;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 600px) {
+        .blog-video-section {
+          padding: 15px;
+        }
+
+        .transcript-toggle {
+          width: 100%;
+          justify-content: center;
+        }
       }
     </style>
   </head>
@@ -747,6 +816,7 @@
         </div>
         <nav>
           <a href="index.html#home">Home</a>
+          <a href="index.html#about">About Me</a>
           <a href="index.html#skills">Skills</a>
           <a href="index.html#showcase">Portfolio</a>
           <a href="index.html#testimonials">Testimonials</a>
@@ -766,19 +836,6 @@
               <span><i class="far fa-folder"></i> Physics & Cosmology</span>
               <span><i class="far fa-clock"></i> 15 min read</span>
             </div>
-
-            <!-- Updated video container with landscape orientation -->
-            <div class="blog-video-container">
-              <iframe
-                src="https://player.vimeo.com/video/1119190951?badge=0&amp;autopause=0&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;player_id=0&amp;app_id=58479"
-                frameborder="0"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                class="blog-video"
-                title="Enceladus"
-              ></iframe>
-            </div>
-            <script src="https://player.vimeo.com/api/player.js"></script>
           </div>
 
           <div class="blog-content">
@@ -862,14 +919,42 @@
               phenomena might be possible.
             </p>
 
-            <img
-              src="https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1478&q=80"
-              alt="Theoretical wormhole diagram"
-              class="blog-image"
-            />
-            <p class="image-caption">
-              Artistic representation of a wormhole connecting two points in
-              space-time
+            <!-- Add this code after the mission-highlight section, before the "Foundations of Multiverse Theory" section -->
+
+            <h2>Visualizing the Multiverse</h2>
+            <p>
+              Watch this explanatory video to better understand the concepts of
+              multiverse theory and potential portals between universes:
+            </p>
+
+            <div class="video-container">
+              <!-- Option 1: Self-hosted video (best for maximum compatibility) -->
+              <video
+                controls
+                poster="https://www.sciencefocus.com/news/simulation-wormhole-unite-gravity-quantum-theory-physics"
+              >
+                <source src="blog_portal_1_vid.MP4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+
+              <!-- Option 2: YouTube embed (if you upload to YouTube) -->
+              <!--
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    -->
+
+              <!-- Option 3: Vimeo embed (if you upload to Vimeo) -->
+              <!--
+    <div class="video-wrapper">
+      <iframe src="https://player.vimeo.com/video/YOUR_VIDEO_ID" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    -->
+            </div>
+
+            <p class="video-caption">
+              This video explores the scientific theories behind multiverse
+              concepts and potential pathways between universes.
             </p>
 
             <h2>Multiverse Theory: A Landscape of Possibilities</h2>
@@ -1314,6 +1399,26 @@
             behavior: "smooth",
           });
         });
+      });
+
+      // Transcript toggle functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const transcriptToggle = document.querySelector(".transcript-toggle");
+        const transcriptContent = document.querySelector(".transcript-content");
+
+        if (transcriptToggle && transcriptContent) {
+          transcriptToggle.addEventListener("click", function () {
+            transcriptContent.classList.toggle("show");
+
+            if (transcriptContent.classList.contains("show")) {
+              transcriptToggle.innerHTML =
+                'Hide Transcript <i class="fas fa-chevron-up"></i>';
+            } else {
+              transcriptToggle.innerHTML =
+                'Show Transcript <i class="fas fa-chevron-down"></i>';
+            }
+          });
+        }
       });
     </script>
   </body>
