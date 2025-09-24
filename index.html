@@ -583,7 +583,7 @@
 
       .carousel-track {
         display: flex;
-        transition: transform 0.5s ease;
+        transition: transform 0.6s ease-in-out; /* Changed from 0.5s ease to 0.6s ease-in-out */
         gap: 40px;
         padding: 10px 0;
         will-change: transform;
@@ -772,6 +772,22 @@
       .carousel-arrow.next {
         right: 10px;
       }
+
+      /* Prevent accidental scrolling on mobile */
+      @media (max-width: 900px) {
+      .carousel-track {
+        transition: transform 0.7s ease-in-out; /* Even slower on mobile */
+      }
+          
+      /* Add a visual indicator that it's scrollable */
+      .carousel-container {
+        cursor: grab;
+      }
+          
+      .carousel-container:active {
+        cursor: grabbing;
+      }
+    }
 
       /* Testimonials Section */
       .testimonials {
@@ -3585,85 +3601,98 @@
       }
 
       // Carousel functionality
-      function initCarousel() {
-        const track = document.querySelector(".carousel-track");
-        const cards = document.querySelectorAll(".showcase-card");
-        const prevBtn = document.querySelector(".carousel-arrow.prev");
-        const nextBtn = document.querySelector(".carousel-arrow.next");
-        const dots = document.querySelectorAll(".carousel-dot");
+      // Carousel functionality
+function initCarousel() {
+    const track = document.querySelector(".carousel-track");
+    const cards = document.querySelectorAll(".showcase-card");
+    const prevBtn = document.querySelector(".carousel-arrow.prev");
+    const nextBtn = document.querySelector(".carousel-arrow.next");
+    const dots = document.querySelectorAll(".carousel-dot");
 
-        if (!track || cards.length === 0) return;
+    if (!track || cards.length === 0) return;
 
-        let index = 0;
-        const cardWidth = cards[0].offsetWidth + 40; // width + gap
-        const containerWidth = document.querySelector(
-          ".carousel-container"
-        ).offsetWidth;
-        const visibleCards = Math.max(
-          1,
-          Math.floor(containerWidth / cardWidth)
-        );
+    let index = 0;
+    const cardWidth = cards[0].offsetWidth + 40; // width + gap
+    const containerWidth = document.querySelector(
+        ".carousel-container"
+    ).offsetWidth;
+    const visibleCards = Math.max(
+        1,
+        Math.floor(containerWidth / cardWidth)
+    );
 
-        function moveCarousel() {
-          track.style.transform = `translateX(-${index * cardWidth}px)`;
-          dots.forEach((dot, i) => {
+    function moveCarousel() {
+        track.style.transform = `translateX(-${index * cardWidth}px)`;
+        dots.forEach((dot, i) => {
             dot.classList.toggle("active", i === index % dots.length);
-          });
-        }
+        });
+    }
 
-        function nextSlide() {
-          index++;
-          if (index > cards.length - visibleCards) {
+    function nextSlide() {
+        index++;
+        if (index > cards.length - visibleCards) {
             index = 0; // loop back
-          }
-          moveCarousel();
         }
+        moveCarousel();
+    }
 
-        function prevSlide() {
-          index--;
-          if (index < 0) {
+    function prevSlide() {
+        index--;
+        if (index < 0) {
             index = cards.length - visibleCards;
-          }
-          moveCarousel();
         }
+        moveCarousel();
+    }
 
-        if (nextBtn) nextBtn.addEventListener("click", nextSlide);
-        if (prevBtn) prevBtn.addEventListener("click", prevSlide);
+    if (nextBtn) nextBtn.addEventListener("click", nextSlide);
+    if (prevBtn) prevBtn.addEventListener("click", prevSlide);
 
-        // Auto scroll every 3s
-        let autoScroll = setInterval(nextSlide, 3500);
+    // **FIXED: Different timing for mobile vs desktop**
+    const isMobile = window.innerWidth <= 900;
+    const autoScrollInterval = isMobile ? 6000 : 3500; // 6 seconds for mobile, 3.5 for desktop
 
-        // Pause auto scroll on hover
-        if (track) {
-          track.addEventListener("mouseenter", () => clearInterval(autoScroll));
-          track.addEventListener(
+    // Auto scroll with appropriate timing
+    let autoScroll = setInterval(nextSlide, autoScrollInterval);
+
+    // Pause auto scroll on hover
+    if (track) {
+        track.addEventListener("mouseenter", () => clearInterval(autoScroll));
+        track.addEventListener(
             "mouseleave",
-            () => (autoScroll = setInterval(nextSlide, 3000))
-          );
-        }
+            () => (autoScroll = setInterval(nextSlide, autoScrollInterval))
+        );
+    }
 
-        // Touch events for mobile
-        let startX, moveX;
-        if (track) {
-          track.addEventListener("touchstart", (e) => {
+    // Touch events for mobile
+    let startX, moveX;
+    if (track) {
+        track.addEventListener("touchstart", (e) => {
             startX = e.touches[0].clientX;
             clearInterval(autoScroll);
-          });
+        });
 
-          track.addEventListener("touchmove", (e) => {
+        track.addEventListener("touchmove", (e) => {
             moveX = e.touches[0].clientX;
-          });
+        });
 
-          track.addEventListener("touchend", () => {
+        track.addEventListener("touchend", () => {
             if (startX - moveX > 50) {
-              nextSlide();
+                nextSlide();
             } else if (moveX - startX > 50) {
-              prevSlide();
+                prevSlide();
             }
-            autoScroll = setInterval(nextSlide, 3000);
-          });
-        }
-      }
+            autoScroll = setInterval(nextSlide, autoScrollInterval);
+        });
+    }
+
+    // **ADDED: Update timing on window resize**
+    window.addEventListener('resize', function() {
+        clearInterval(autoScroll);
+        const isMobileResized = window.innerWidth <= 900;
+        const newInterval = isMobileResized ? 6000 : 3500;
+        autoScroll = setInterval(nextSlide, newInterval);
+    });
+}
 
       // Custom cursor
       function initCustomCursor() {
