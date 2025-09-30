@@ -9,7 +9,7 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Portfolio / About -->
+  <!-- About Page -->
   <url>
     <loc>https://shahmoksh.netlify.app/about</loc>
     <lastmod>2025-09-30</lastmod>
@@ -17,26 +17,76 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Blogs (add all your blog URLs here) -->
+  <!-- Blogs -->
   <url>
-    <loc>https://shahmoksh.netlify.app/blog</loc>
+    <loc>https://shahmoksh.netlify.app/portals-to-other-universe-1</loc>
     <lastmod>2025-09-30</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://shahmoksh.netlify.app/blog/your-first-blog</loc>
+    <loc>https://shahmoksh.netlify.app/portals-to-other-universe-2</loc>
     <lastmod>2025-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://shahmoksh.netlify.app/blog/second-blog</loc>
+    <loc>https://shahmoksh.netlify.app/blog-double-edged-sword</loc>
     <lastmod>2025-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://shahmoksh.netlify.app/blog-gaganyaan</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://shahmoksh.netlify.app/blog-journey-to-the-metal-world</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://shahmoksh.netlify.app/blog-voyage-to-icy-moon</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://shahmoksh.netlify.app/blog-the-emerging-technology</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://shahmoksh.netlify.app/blog-artificial-intelligence</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Optional: GitHub Projects -->
+  <url>
+    <loc>https://github.com/moksh2305/secure-chat-application</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://github.com/moksh2305/cruise-room-booking</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
 
 </urlset>
