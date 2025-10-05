@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Moksh Shah | Portfolio</title>
+    <link rel="icon" type="image/png" sizes="400x512" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+
     <link
       href="https://fonts.googleapis.com/css?family=Quattrocento+Sans&display=swap"
       rel="stylesheet"
@@ -187,6 +190,7 @@
         z-index: 10;
         backdrop-filter: blur(10px);
         flex-wrap: wrap;
+        overflow: hidden;
       }
 
       /* Header Right Section */
@@ -810,19 +814,19 @@
 
       /* Prevent accidental scrolling on mobile */
       @media (max-width: 900px) {
-      .carousel-track {
-        transition: transform 0.7s ease-in-out; /* Even slower on mobile */
+        .carousel-track {
+          transition: transform 0.7s ease-in-out; /* Even slower on mobile */
+        }
+
+        /* Add a visual indicator that it's scrollable */
+        .carousel-container {
+          cursor: grab;
+        }
+
+        .carousel-container:active {
+          cursor: grabbing;
+        }
       }
-          
-      /* Add a visual indicator that it's scrollable */
-      .carousel-container {
-        cursor: grab;
-      }
-          
-      .carousel-container:active {
-        cursor: grabbing;
-      }
-    }
 
       /* Testimonials Section */
       .testimonials {
@@ -2418,12 +2422,12 @@
           flex-direction: column;
           gap: 10px;
         }
-        
+
         .search-container {
           max-width: 100%;
           order: 1;
         }
-        
+
         .resume-download {
           order: 2;
         }
@@ -3334,16 +3338,28 @@
               </div>
             </div>
             <div class="social-links">
-                <a href="https://github.com/moksh2305/website_mokshshah" class="social-link" title="GitHub">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="http://www.linkedin.com/in/moksh-shah-278a0221a" class="social-link" title="LinkedIn">
-                  <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://www.instagram.com/themokshshah?igsh=MTZxaTBvMmo3MTVyMA%3D%3D&utm_source=qr" class="social-link" title="Instagram">
-                  <i class="fab fa-instagram"></i>
-                </a>
-              </div>
+              <a
+                href="https://github.com/moksh2305/website_mokshshah"
+                class="social-link"
+                title="GitHub"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+              <a
+                href="http://www.linkedin.com/in/moksh-shah-278a0221a"
+                class="social-link"
+                title="LinkedIn"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/themokshshah?igsh=MTZxaTBvMmo3MTVyMA%3D%3D&utm_source=qr"
+                class="social-link"
+                title="Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
           </div>
 
           <div class="footer-links">
@@ -3388,11 +3404,11 @@
         <div class="footer-bottom">
           <div class="copyright">
             &copy; 2025 Moksh Shah. All rights reserved. Contact me at:
-          <a
-            href="mailto:moksh230305@gmail.com"
-            style="color: var(--accent-color)"
-            >moksh230305@gmail.com</a
-          >
+            <a
+              href="mailto:moksh230305@gmail.com"
+              style="color: var(--accent-color)"
+              >moksh230305@gmail.com</a
+            >
           </div>
           <div class="footer-legal">
             <a href="#">Privacy Policy</a>
@@ -3401,95 +3417,96 @@
         </div>
       </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script>
-      // Array of flirty quotes
-      const quotes = [
-        {
-          text: "Are you a magician? Because whenever I look at your projects, everyone else disappears.",
-          author: "Anonymous Admirer",
-        },
-        {
-          text: "If beauty were time, you'd be an eternity of stunning code and design.",
-          author: "Code Poet",
-        },
-        {
-          text: "Do you have a map? I keep getting lost in your portfolio.",
-          author: "Inspired Visitor",
-        },
-        {
-          text: "Is your name Google? Because you have everything I've been searching for.",
-          author: "Tech Enthusiast",
-        },
-        {
-          text: "Are you made of copper and tellurium? Because you're Cu-Te and your work is absolutely brilliant!",
-          author: "Science Fan",
-        },
-                {
-          text: "Are you an exception? Let me catch you, because I never want to throw you away.",
-          author: "Java Enthusiast",
-        },
-        {
-          text: "Are you a breakpoint? Because you just paused my entire universe.",
-          author: "Debugger in Love",
-        },
-        {
-          text: "You must be open-source, because I just want to contribute to your happiness.",
-          author: "Collaborator",
-        },
-        {
-          text: "Are you a deadlock? Because I’m stuck waiting for you forever.",
-          author: "Concurrency Admirer",
-        },
-        {
-          text: "Are you an IP packet? Because I’d cross any route just to reach you.",
-          author: "Network Admirer",
-        },
-        {
-          text: "You must be multi-threading, because you make everything in my life run faster.",
-          author: "Parallel Lover",
-        },
-        {
-          text: "Are you a compiler? Because you turn my messy thoughts into something that works.",
-          author: "Code Enthusiast",
-        },
-        {
-          text: "You must be an exception, because my world stops until I handle you.",
-          author: "Try-Catch Admirer",
-        },
-        {
-          text: "If you were a function, you'd be the perfect one because you have no side effects, only beauty.",
-          author: "Dev Admirer",
-        },
-        {
-          text: "Is your code in hexadecimal? Because I'm F3Aous of your skills!",
-          author: "Coding Admirer",
-        },
-        {
-          text: "Roses are red, violets are blue, your code is flawless, and so are you.",
-          author: "Digital Poet",
-        },
-        {
-          text: "You must be a great developer because whenever I look at you, my heart executes an infinite loop.",
-          author: "Hopeless Romantic Coder",
-        },
-        {
-          text: "Are you a Pantone swatch? Because you're the exact shade I've been searching for.",
-          author: "Color Enthusiast",
-        },
-      ];
+      <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+      <script>
+        // Array of flirty quotes
+        const quotes = [
+          {
+            text: "Are you a magician? Because whenever I look at your projects, everyone else disappears.",
+            author: "Anonymous Admirer",
+          },
+          {
+            text: "If beauty were time, you'd be an eternity of stunning code and design.",
+            author: "Code Poet",
+          },
+          {
+            text: "Do you have a map? I keep getting lost in your portfolio.",
+            author: "Inspired Visitor",
+          },
+          {
+            text: "Is your name Google? Because you have everything I've been searching for.",
+            author: "Tech Enthusiast",
+          },
+          {
+            text: "Are you made of copper and tellurium? Because you're Cu-Te and your work is absolutely brilliant!",
+            author: "Science Fan",
+          },
+          {
+            text: "Are you an exception? Let me catch you, because I never want to throw you away.",
+            author: "Java Enthusiast",
+          },
+          {
+            text: "Are you a breakpoint? Because you just paused my entire universe.",
+            author: "Debugger in Love",
+          },
+          {
+            text: "You must be open-source, because I just want to contribute to your happiness.",
+            author: "Collaborator",
+          },
+          {
+            text: "Are you a deadlock? Because I’m stuck waiting for you forever.",
+            author: "Concurrency Admirer",
+          },
+          {
+            text: "Are you an IP packet? Because I’d cross any route just to reach you.",
+            author: "Network Admirer",
+          },
+          {
+            text: "You must be multi-threading, because you make everything in my life run faster.",
+            author: "Parallel Lover",
+          },
+          {
+            text: "Are you a compiler? Because you turn my messy thoughts into something that works.",
+            author: "Code Enthusiast",
+          },
+          {
+            text: "You must be an exception, because my world stops until I handle you.",
+            author: "Try-Catch Admirer",
+          },
+          {
+            text: "If you were a function, you'd be the perfect one because you have no side effects, only beauty.",
+            author: "Dev Admirer",
+          },
+          {
+            text: "Is your code in hexadecimal? Because I'm F3Aous of your skills!",
+            author: "Coding Admirer",
+          },
+          {
+            text: "Roses are red, violets are blue, your code is flawless, and so are you.",
+            author: "Digital Poet",
+          },
+          {
+            text: "You must be a great developer because whenever I look at you, my heart executes an infinite loop.",
+            author: "Hopeless Romantic Coder",
+          },
+          {
+            text: "Are you a Pantone swatch? Because you're the exact shade I've been searching for.",
+            author: "Color Enthusiast",
+          },
+        ];
 
-      // Blog data
-      const blogPosts = [
-        {
-          id: 1,
-          title: "Journey to a Metal World",
-          date: "August 22, 2020",
-          category: "Science & Technology",
-          image: "https://cdn.mos.cms.futurecdn.net/GuUm7rT6qXxN9yJhj4sqFW.gif",
-          excerpt:
-            "Exploring the fascinating world of metals and their significance in our daily lives and technology.",
-          content: `
+        // Blog data
+        const blogPosts = [
+          {
+            id: 1,
+            title: "Journey to a Metal World",
+            date: "August 22, 2020",
+            category: "Science & Technology",
+            image:
+              "https://cdn.mos.cms.futurecdn.net/GuUm7rT6qXxN9yJhj4sqFW.gif",
+            excerpt:
+              "Exploring the fascinating world of metals and their significance in our daily lives and technology.",
+            content: `
                     <p>Metals have always fascinated humankind with their unique properties and versatility. From the Bronze Age to the Silicon Age, metals have played a crucial role in shaping human civilization.</p>
 
                     <p>The journey to understanding metals begins with their atomic structure. Metals typically have one to three electrons in their outer shell, which they readily give up, making them excellent conductors of electricity and heat.</p>
@@ -3504,19 +3521,19 @@
 
                     <p>Read the full article on <a href="https://mokshcs.wordpress.com/2020/08/22/journey-to-a-metal-world/" target="_blank">my WordPress blog</a>.</p>
                 `,
-          tags: ["Science", "Space Mining", "Technology"],
-          link: "https://mokshcs.wordpress.com/2020/08/22/journey-to-a-metal-world/",
-        },
-        {
-          id: 2,
-          title: "The Future of Web Development",
-          date: "January 15, 2023",
-          category: "Web Development",
-          image:
-            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1715&q=80",
-          excerpt:
-            "Exploring the latest trends and technologies that are shaping the future of web development.",
-          content: `
+            tags: ["Science", "Space Mining", "Technology"],
+            link: "https://mokshcs.wordpress.com/2020/08/22/journey-to-a-metal-world/",
+          },
+          {
+            id: 2,
+            title: "The Future of Web Development",
+            date: "January 15, 2023",
+            category: "Web Development",
+            image:
+              "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1715&q=80",
+            excerpt:
+              "Exploring the latest trends and technologies that are shaping the future of web development.",
+            content: `
                     <p>Web development has come a long way since the early days of static HTML pages. Today, we're seeing an explosion of new frameworks, tools, and methodologies that are transforming how we build for the web.</p>
 
                     <p>One of the most significant trends is the rise of JavaScript frameworks like React, Vue, and Angular. These frameworks have revolutionized frontend development by enabling component-based architectures and single-page applications.</p>
@@ -3529,19 +3546,19 @@
 
                     <p>The future of web development is bright, with new technologies and approaches emerging all the time. As developers, it's an exciting time to be building for the web.</p>
                 `,
-          tags: ["Web Development", "JavaScript", "React"],
-          link: "https://mokshcs.wordpress.com",
-        },
-        {
-          id: 3,
-          title: "Understanding Machine Learning",
-          date: "March 5, 2023",
-          category: "Artificial Intelligence",
-          image:
-            "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
-          excerpt:
-            "A beginner's guide to understanding the fundamentals of machine learning and its applications.",
-          content: `
+            tags: ["Web Development", "JavaScript", "React"],
+            link: "https://mokshcs.wordpress.com",
+          },
+          {
+            id: 3,
+            title: "Understanding Machine Learning",
+            date: "March 5, 2023",
+            category: "Artificial Intelligence",
+            image:
+              "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+            excerpt:
+              "A beginner's guide to understanding the fundamentals of machine learning and its applications.",
+            content: `
                     <p>Machine learning is a subset of artificial intelligence that focuses on building systems that can learn from data and improve their performance over time without being explicitly programmed.</p>
 
                     <p>At its core, machine learning is about finding patterns in data. These patterns can be used to make predictions or decisions without human intervention.</p>
@@ -3556,280 +3573,285 @@
 
                     <p>Machine learning has countless applications, from recommendation systems and natural language processing to computer vision and autonomous vehicles. As the field continues to evolve, we can expect to see even more innovative applications in the future.</p>
                 `,
-          tags: ["AI", "Machine Learning", "Data Science"],
-          link: "https://mokshcs.wordpress.com",
-        },
-      ];
-
-      // Function to display a random quote
-      function displayRandomQuote() {
-        const randomIndex = Math.floor(Math.random() * quotes.length);
-        const quote = quotes[randomIndex];
-
-        document.getElementById("daily-quote").textContent = `"${quote.text}"`;
-        document.getElementById(
-          "quote-author"
-        ).textContent = `- ${quote.author}`;
-      }
-
-      // Function to update particles based on current theme
-      function updateParticlesForTheme() {
-        // Get the current accent color from CSS variable
-        const accentColor = getComputedStyle(document.documentElement)
-          .getPropertyValue("--accent-color")
-          .trim();
-
-        // Destroy existing particles
-        const container = document.getElementById("global-particles");
-        container.innerHTML = "";
-
-        // Initialize particles with new color
-        particlesJS("global-particles", {
-          particles: {
-            number: { value: 80, density: { enable: true, value_area: 800 } },
-            color: { value: accentColor },
-            shape: { type: "circle" },
-            opacity: {
-              value: 0.5,
-              random: true,
-              anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false },
-            },
-            size: {
-              value: 3,
-              random: true,
-              anim: { enable: true, speed: 2, size_min: 0.1, sync: false },
-            },
-            line_linked: {
-              enable: true,
-              distance: 150,
-              color: accentColor,
-              opacity: 0.4,
-              width: 1,
-            },
-            move: {
-              enable: true,
-              speed: 1,
-              direction: "none",
-              random: true,
-              straight: false,
-              out_mode: "out",
-              bounce: false,
-            },
+            tags: ["AI", "Machine Learning", "Data Science"],
+            link: "https://mokshcs.wordpress.com",
           },
-          interactivity: {
-            detect_on: "canvas",
-            events: {
-              onhover: { enable: true, mode: "grab" },
-              onclick: { enable: true, mode: "push" },
-              resize: true,
+        ];
+
+        // Function to display a random quote
+        function displayRandomQuote() {
+          const randomIndex = Math.floor(Math.random() * quotes.length);
+          const quote = quotes[randomIndex];
+
+          document.getElementById(
+            "daily-quote"
+          ).textContent = `"${quote.text}"`;
+          document.getElementById(
+            "quote-author"
+          ).textContent = `- ${quote.author}`;
+        }
+
+        // Function to update particles based on current theme
+        function updateParticlesForTheme() {
+          // Get the current accent color from CSS variable
+          const accentColor = getComputedStyle(document.documentElement)
+            .getPropertyValue("--accent-color")
+            .trim();
+
+          // Destroy existing particles
+          const container = document.getElementById("global-particles");
+          container.innerHTML = "";
+
+          // Initialize particles with new color
+          particlesJS("global-particles", {
+            particles: {
+              number: { value: 80, density: { enable: true, value_area: 800 } },
+              color: { value: accentColor },
+              shape: { type: "circle" },
+              opacity: {
+                value: 0.5,
+                random: true,
+                anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false },
+              },
+              size: {
+                value: 3,
+                random: true,
+                anim: { enable: true, speed: 2, size_min: 0.1, sync: false },
+              },
+              line_linked: {
+                enable: true,
+                distance: 150,
+                color: accentColor,
+                opacity: 0.4,
+                width: 1,
+              },
+              move: {
+                enable: true,
+                speed: 1,
+                direction: "none",
+                random: true,
+                straight: false,
+                out_mode: "out",
+                bounce: false,
+              },
             },
-          },
-          retina_detect: true,
-        });
-      }
+            interactivity: {
+              detect_on: "canvas",
+              events: {
+                onhover: { enable: true, mode: "grab" },
+                onclick: { enable: true, mode: "push" },
+                resize: true,
+              },
+            },
+            retina_detect: true,
+          });
+        }
 
-      // Function to show blog post
-      function showBlogPost(id) {
-        const blog = blogPosts.find((post) => post.id === id);
-        if (!blog) return;
+        // Function to show blog post
+        function showBlogPost(id) {
+          const blog = blogPosts.find((post) => post.id === id);
+          if (!blog) return;
 
-        document.getElementById("blog-title").textContent = blog.title;
-        document.getElementById(
-          "blog-meta"
-        ).textContent = `${blog.date} | ${blog.category}`;
-        document.getElementById("blog-image").src = blog.image;
-        document.getElementById("blog-body").innerHTML = blog.content;
+          document.getElementById("blog-title").textContent = blog.title;
+          document.getElementById(
+            "blog-meta"
+          ).textContent = `${blog.date} | ${blog.category}`;
+          document.getElementById("blog-image").src = blog.image;
+          document.getElementById("blog-body").innerHTML = blog.content;
 
-        document.getElementById("blog-post").style.display = "block";
-        document.body.style.overflow = "hidden";
-      }
+          document.getElementById("blog-post").style.display = "block";
+          document.body.style.overflow = "hidden";
+        }
 
-      // Function to close blog post
-      function closeBlogPost() {
-        document.getElementById("blog-post").style.display = "none";
-        document.body.style.overflow = "auto";
-      }
+        // Function to close blog post
+        function closeBlogPost() {
+          document.getElementById("blog-post").style.display = "none";
+          document.body.style.overflow = "auto";
+        }
 
-      // Initialize blog functionality
-      function initBlogs() {
-        // Add event listeners to Read More buttons
-        document.addEventListener("click", function (e) {
-          if (
-            e.target.classList.contains("read-blog") ||
-            e.target.closest(".read-blog")
-          ) {
-            const button = e.target.classList.contains("read-blog")
-              ? e.target
-              : e.target.closest(".read-blog");
-            const blogId = parseInt(button.getAttribute("data-id"));
-            showBlogPost(blogId);
-          }
-        });
-
-        // Close blog post when clicking the close button
-        document
-          .querySelector(".close-blog")
-          .addEventListener("click", closeBlogPost);
-
-        // Close blog post when clicking outside the content
-        document
-          .getElementById("blog-post")
-          .addEventListener("click", function (e) {
-            if (e.target === this) {
-              closeBlogPost();
+        // Initialize blog functionality
+        function initBlogs() {
+          // Add event listeners to Read More buttons
+          document.addEventListener("click", function (e) {
+            if (
+              e.target.classList.contains("read-blog") ||
+              e.target.closest(".read-blog")
+            ) {
+              const button = e.target.classList.contains("read-blog")
+                ? e.target
+                : e.target.closest(".read-blog");
+              const blogId = parseInt(button.getAttribute("data-id"));
+              showBlogPost(blogId);
             }
           });
-      }
 
-      // Carousel functionality
-      // Carousel functionality
-function initCarousel() {
-    const track = document.querySelector(".carousel-track");
-    const cards = document.querySelectorAll(".showcase-card");
-    const prevBtn = document.querySelector(".carousel-arrow.prev");
-    const nextBtn = document.querySelector(".carousel-arrow.next");
-    const dots = document.querySelectorAll(".carousel-dot");
+          // Close blog post when clicking the close button
+          document
+            .querySelector(".close-blog")
+            .addEventListener("click", closeBlogPost);
 
-    if (!track || cards.length === 0) return;
-
-    let index = 0;
-    const cardWidth = cards[0].offsetWidth + 40; // width + gap
-    const containerWidth = document.querySelector(
-        ".carousel-container"
-    ).offsetWidth;
-    const visibleCards = Math.max(
-        1,
-        Math.floor(containerWidth / cardWidth)
-    );
-
-    function moveCarousel() {
-        track.style.transform = `translateX(-${index * cardWidth}px)`;
-        dots.forEach((dot, i) => {
-            dot.classList.toggle("active", i === index % dots.length);
-        });
-    }
-
-    function nextSlide() {
-        index++;
-        if (index > cards.length - visibleCards) {
-            index = 0; // loop back
+          // Close blog post when clicking outside the content
+          document
+            .getElementById("blog-post")
+            .addEventListener("click", function (e) {
+              if (e.target === this) {
+                closeBlogPost();
+              }
+            });
         }
-        moveCarousel();
-    }
 
-    function prevSlide() {
-        index--;
-        if (index < 0) {
-            index = cards.length - visibleCards;
-        }
-        moveCarousel();
-    }
+        // Carousel functionality
+        // Carousel functionality
+        function initCarousel() {
+          const track = document.querySelector(".carousel-track");
+          const cards = document.querySelectorAll(".showcase-card");
+          const prevBtn = document.querySelector(".carousel-arrow.prev");
+          const nextBtn = document.querySelector(".carousel-arrow.next");
+          const dots = document.querySelectorAll(".carousel-dot");
 
-    if (nextBtn) nextBtn.addEventListener("click", nextSlide);
-    if (prevBtn) prevBtn.addEventListener("click", prevSlide);
+          if (!track || cards.length === 0) return;
 
-    // **FIXED: Different timing for mobile vs desktop**
-    const isMobile = window.innerWidth <= 900;
-    const autoScrollInterval = isMobile ? 6000 : 4500; // 6 seconds for mobile, 3.5 for desktop
-
-    // Auto scroll with appropriate timing
-    let autoScroll = setInterval(nextSlide, autoScrollInterval);
-
-    // Pause auto scroll on hover
-    if (track) {
-        track.addEventListener("mouseenter", () => clearInterval(autoScroll));
-        track.addEventListener(
-            "mouseleave",
-            () => (autoScroll = setInterval(nextSlide, autoScrollInterval))
-        );
-    }
-
-    // Touch events for mobile
-    let startX, moveX;
-    if (track) {
-        track.addEventListener("touchstart", (e) => {
-            startX = e.touches[0].clientX;
-            clearInterval(autoScroll);
-        });
-
-        track.addEventListener("touchmove", (e) => {
-            moveX = e.touches[0].clientX;
-        });
-
-        track.addEventListener("touchend", () => {
-            if (startX - moveX > 50) {
-                nextSlide();
-            } else if (moveX - startX > 50) {
-                prevSlide();
-            }
-            autoScroll = setInterval(nextSlide, autoScrollInterval);
-        });
-    }
-
-    // **ADDED: Update timing on window resize**
-    window.addEventListener('resize', function() {
-        clearInterval(autoScroll);
-        const isMobileResized = window.innerWidth <= 900;
-        const newInterval = isMobileResized ? 6000 : 4500;
-        autoScroll = setInterval(nextSlide, newInterval);
-    });
-}
-
-      // Custom cursor
-      function initCustomCursor() {
-        const cursorDot = document.querySelector(".cursor-dot");
-        const cursorOutline = document.querySelector(".cursor-outline");
-
-        if (!cursorDot || !cursorOutline) return;
-
-        document.addEventListener("mousemove", (e) => {
-          const posX = e.clientX;
-          const posY = e.clientY;
-
-          cursorDot.style.left = `${posX}px`;
-          cursorDot.style.top = `${posY}px`;
-
-          cursorOutline.animate(
-            {
-              left: `${posX}px`,
-              top: `${posY}px`,
-            },
-            { duration: 500, fill: "forwards" }
+          let index = 0;
+          const cardWidth = cards[0].offsetWidth + 40; // width + gap
+          const containerWidth = document.querySelector(
+            ".carousel-container"
+          ).offsetWidth;
+          const visibleCards = Math.max(
+            1,
+            Math.floor(containerWidth / cardWidth)
           );
-        });
 
-        // Add hover effects
-        const hoverElements = document.querySelectorAll(
-          "a, button, .card-btn, .showcase-card"
-        );
+          function moveCarousel() {
+            track.style.transform = `translateX(-${index * cardWidth}px)`;
+            dots.forEach((dot, i) => {
+              dot.classList.toggle("active", i === index % dots.length);
+            });
+          }
 
-        hoverElements.forEach((element) => {
-          element.addEventListener("mouseenter", () => {
-            cursorDot.style.transform = "translate(-50%, -50%) scale(1.5)";
-            cursorOutline.style.transform = "translate(-50%, -50%) scale(1.5)";
-            cursorOutline.style.borderWidth = "1px";
+          function nextSlide() {
+            index++;
+            if (index > cards.length - visibleCards) {
+              index = 0; // loop back
+            }
+            moveCarousel();
+          }
+
+          function prevSlide() {
+            index--;
+            if (index < 0) {
+              index = cards.length - visibleCards;
+            }
+            moveCarousel();
+          }
+
+          if (nextBtn) nextBtn.addEventListener("click", nextSlide);
+          if (prevBtn) prevBtn.addEventListener("click", prevSlide);
+
+          // **FIXED: Different timing for mobile vs desktop**
+          const isMobile = window.innerWidth <= 900;
+          const autoScrollInterval = isMobile ? 6000 : 4500; // 6 seconds for mobile, 3.5 for desktop
+
+          // Auto scroll with appropriate timing
+          let autoScroll = setInterval(nextSlide, autoScrollInterval);
+
+          // Pause auto scroll on hover
+          if (track) {
+            track.addEventListener("mouseenter", () =>
+              clearInterval(autoScroll)
+            );
+            track.addEventListener(
+              "mouseleave",
+              () => (autoScroll = setInterval(nextSlide, autoScrollInterval))
+            );
+          }
+
+          // Touch events for mobile
+          let startX, moveX;
+          if (track) {
+            track.addEventListener("touchstart", (e) => {
+              startX = e.touches[0].clientX;
+              clearInterval(autoScroll);
+            });
+
+            track.addEventListener("touchmove", (e) => {
+              moveX = e.touches[0].clientX;
+            });
+
+            track.addEventListener("touchend", () => {
+              if (startX - moveX > 50) {
+                nextSlide();
+              } else if (moveX - startX > 50) {
+                prevSlide();
+              }
+              autoScroll = setInterval(nextSlide, autoScrollInterval);
+            });
+          }
+
+          // **ADDED: Update timing on window resize**
+          window.addEventListener("resize", function () {
+            clearInterval(autoScroll);
+            const isMobileResized = window.innerWidth <= 900;
+            const newInterval = isMobileResized ? 6000 : 4500;
+            autoScroll = setInterval(nextSlide, newInterval);
+          });
+        }
+
+        // Custom cursor
+        function initCustomCursor() {
+          const cursorDot = document.querySelector(".cursor-dot");
+          const cursorOutline = document.querySelector(".cursor-outline");
+
+          if (!cursorDot || !cursorOutline) return;
+
+          document.addEventListener("mousemove", (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+
+            cursorOutline.animate(
+              {
+                left: `${posX}px`,
+                top: `${posY}px`,
+              },
+              { duration: 500, fill: "forwards" }
+            );
           });
 
-          element.addEventListener("mouseleave", () => {
-            cursorDot.style.transform = "translate(-50%, -50%) scale(1)";
-            cursorOutline.style.transform = "translate(-50%, -50%) scale(1)";
-            cursorOutline.style.borderWidth = "2px";
+          // Add hover effects
+          const hoverElements = document.querySelectorAll(
+            "a, button, .card-btn, .showcase-card"
+          );
+
+          hoverElements.forEach((element) => {
+            element.addEventListener("mouseenter", () => {
+              cursorDot.style.transform = "translate(-50%, -50%) scale(1.5)";
+              cursorOutline.style.transform =
+                "translate(-50%, -50%) scale(1.5)";
+              cursorOutline.style.borderWidth = "1px";
+            });
+
+            element.addEventListener("mouseleave", () => {
+              cursorDot.style.transform = "translate(-50%, -50%) scale(1)";
+              cursorOutline.style.transform = "translate(-50%, -50%) scale(1)";
+              cursorOutline.style.borderWidth = "2px";
+            });
           });
-        });
-      }
+        }
 
-      // Toast notifications
-      function showToast(title, message, type = "success", duration = 5000) {
-        const toastContainer = document.querySelector(".toast-container");
-        if (!toastContainer) return;
+        // Toast notifications
+        function showToast(title, message, type = "success", duration = 5000) {
+          const toastContainer = document.querySelector(".toast-container");
+          if (!toastContainer) return;
 
-        const toast = document.createElement("div");
-        toast.className = `toast ${type}`;
+          const toast = document.createElement("div");
+          toast.className = `toast ${type}`;
 
-        const icon =
-          type === "success" ? "fa-check-circle" : "fa-exclamation-circle";
+          const icon =
+            type === "success" ? "fa-check-circle" : "fa-exclamation-circle";
 
-        toast.innerHTML = `
+          toast.innerHTML = `
                 <i class="fas ${icon}"></i>
                 <div class="toast-content">
                     <div class="toast-title">${title}</div>
@@ -3840,807 +3862,821 @@ function initCarousel() {
                 </button>
             `;
 
-        toastContainer.appendChild(toast);
+          toastContainer.appendChild(toast);
 
-        // Show toast with a slight delay to allow for rendering
-        setTimeout(() => {
-          toast.classList.add("show");
-        }, 10);
-
-        // Add event listener to close button
-        const closeBtn = toast.querySelector(".toast-close");
-        closeBtn.addEventListener("click", () => {
-          hideToast(toast);
-        });
-
-        // Auto-hide after duration if specified
-        if (duration > 0) {
+          // Show toast with a slight delay to allow for rendering
           setTimeout(() => {
+            toast.classList.add("show");
+          }, 10);
+
+          // Add event listener to close button
+          const closeBtn = toast.querySelector(".toast-close");
+          closeBtn.addEventListener("click", () => {
             hideToast(toast);
-          }, duration);
-        }
+          });
 
-        return toast;
-      }
-
-      function hideToast(toast) {
-        toast.classList.remove("show");
-        setTimeout(() => {
-          if (toast.parentNode) {
-            toast.parentNode.removeChild(toast);
-          }
-        }, 300);
-      }
-
-      // Page transitions
-      function initPageTransitions() {
-        const transition = document.querySelector(".page-transition");
-
-        // Add click event to all links
-        document.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", (e) => {
-            if (link.getAttribute("href").startsWith("#")) return;
-
-            e.preventDefault();
-            const href = link.getAttribute("href");
-
-            transition.classList.add("active");
-
+          // Auto-hide after duration if specified
+          if (duration > 0) {
             setTimeout(() => {
-              window.location.href = href;
-            }, 500);
-          });
-        });
-      }
-
-      // Background toggle
-      function initBackgroundToggle() {
-        const toggleBtn = document.getElementById("bg-toggle");
-        let particlesEnabled = true;
-
-        if (!toggleBtn) return;
-
-        toggleBtn.addEventListener("click", () => {
-          particlesEnabled = !particlesEnabled;
-
-          if (particlesEnabled) {
-            document.getElementById("global-particles").style.display = "block";
-            toggleBtn.innerHTML = '<i class="fas fa-layer-group"></i>';
-            showToast("Background effects enabled");
-          } else {
-            document.getElementById("global-particles").style.display = "none";
-            toggleBtn.innerHTML = '<i class="fas fa-times"></i>';
-            showToast("Background effects disabled");
+              hideToast(toast);
+            }, duration);
           }
-        });
-      }
 
-      // Theme toggle switch
-      function initThemeToggle() {
-        const themeToggle = document.getElementById("theme-toggle");
-        const mobileThemeToggle = document.getElementById(
-          "mobile-theme-toggle"
-        );
-        const savedTheme = localStorage.getItem("theme") || "dark";
-
-        // Set initial state
-        if (savedTheme === "dark") {
-          if (themeToggle) themeToggle.checked = false;
-          if (mobileThemeToggle) mobileThemeToggle.checked = false;
-        } else {
-          if (themeToggle) themeToggle.checked = true;
-          if (mobileThemeToggle) mobileThemeToggle.checked = true;
+          return toast;
         }
 
-        if (themeToggle) {
-          themeToggle.addEventListener("change", () => {
-            if (themeToggle.checked) {
-              setTheme("white");
-            } else {
-              setTheme("dark");
-            }
-          });
-        }
-
-        if (mobileThemeToggle) {
-          mobileThemeToggle.addEventListener("change", () => {
-            if (mobileThemeToggle.checked) {
-              setTheme("white");
-            } else {
-              setTheme("dark");
-            }
-          });
-        }
-      }
-
-      // Mobile menu functionality
-      function initMobileMenu() {
-        const menuBtn = document.getElementById("mobile-menu-btn");
-        const mobileNav = document.getElementById("mobile-nav");
-        const mobileNavClose = document.getElementById("mobile-nav-close");
-        const overlay = document.getElementById("overlay");
-
-        if (!menuBtn || !mobileNav || !overlay) return;
-
-        function toggleMenu() {
-          mobileNav.classList.toggle("active");
-          overlay.classList.toggle("active");
-          menuBtn.classList.toggle("active");
-          document.body.style.overflow = mobileNav.classList.contains("active")
-            ? "hidden"
-            : "auto";
-        }
-
-        menuBtn.addEventListener("click", toggleMenu);
-        mobileNavClose.addEventListener("click", toggleMenu);
-        overlay.addEventListener("click", toggleMenu);
-
-        // Close menu when clicking on links
-        mobileNav.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", toggleMenu);
-        });
-      }
-
-      // Initialize everything when DOM is loaded
-      document.addEventListener("DOMContentLoaded", function () {
-        updateParticlesForTheme();
-
-        // Display a random quote
-        displayRandomQuote();
-
-        // Initialize blog functionality
-        initBlogs();
-
-        // Animate skill bars
-        animateSkillBars();
-
-        // Initialize filter buttons
-        initProjectFilters();
-
-        // Initialize project modals
-        initProjectModals();
-
-        // Initialize back to top button
-        initBackToTop();
-
-        // Initialize contact form
-        initContactForm();
-
-        // Initialize carousel
-        initCarousel();
-
-        // Initialize custom cursor
-        initCustomCursor();
-
-        // Initialize page transitions
-        initPageTransitions();
-
-        // Initialize background toggle
-        initBackgroundToggle();
-
-        // Initialize theme toggle
-        initThemeToggle();
-
-        // Initialize mobile menu
-        initMobileMenu();
-
-        // Initialize search functionality
-        initSearch();
-
-        // Initialize testimonial modal
-        initTestimonialModal();
-
-        // Smooth scrolling for navigation
-        document.querySelectorAll("nav a, .mobile-nav a").forEach((anchor) => {
-          anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-
-            const targetId = this.getAttribute("href");
-            const targetElement = document.querySelector(targetId);
-
-            if (targetElement) {
-              window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: "smooth",
-              });
-            }
-          });
-        });
-
-        // Smooth scrolling for buttons
-        const contactBtn = document.getElementById("contact-btn");
-        const projectsBtn = document.getElementById("projects-btn");
-
-        if (contactBtn) {
-          contactBtn.addEventListener("click", () => {
-            const contactSection = document.getElementById("contact");
-            if (contactSection) {
-              contactSection.scrollIntoView({ behavior: "smooth" });
-            }
-          });
-        }
-
-        if (projectsBtn) {
-          projectsBtn.addEventListener("click", () => {
-            const showcaseSection = document.getElementById("showcase");
-            if (showcaseSection) {
-              showcaseSection.scrollIntoView({ behavior: "smooth" });
-            }
-          });
-        }
-      });
-
-      // Loading animation code
-      const blobCanvas = document.getElementById("blobs");
-      if (blobCanvas) {
-        const bctx = blobCanvas.getContext("2d");
-        blobCanvas.width = window.innerWidth;
-        blobCanvas.height = window.innerHeight;
-
-        class Blob {
-          constructor() {
-            this.x = Math.random() * blobCanvas.width;
-            this.y = Math.random() * blobCanvas.height;
-            this.radius = 80 + Math.random() * 100;
-            this.dx = (Math.random() - 0.5) * 0.5;
-            this.dy = (Math.random() - 0.5) * 0.5;
-            this.color = `hsla(${Math.random() * 360}, 70%, 50%, 0.3)`;
-          }
-          draw() {
-            bctx.beginPath();
-            const gradient = bctx.createRadialGradient(
-              this.x,
-              this.y,
-              this.radius * 0.2,
-              this.x,
-              this.y,
-              this.radius
-            );
-            gradient.addColorStop(0, this.color);
-            gradient.addColorStop(1, "transparent");
-            bctx.fillStyle = gradient;
-            bctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            bctx.fill();
-          }
-          update() {
-            this.x += this.dx;
-            this.y += this.dy;
-            if (
-              this.x - this.radius < 0 ||
-              this.x + this.radius > blobCanvas.width
-            )
-              this.dx *= -1;
-            if (
-              this.y - this.radius < 0 ||
-              this.y + this.radius > blobCanvas.height
-            )
-              this.dy *= -1;
-            this.draw();
-          }
-        }
-
-        let blobs = [];
-        for (let i = 0; i < 6; i++) {
-          blobs.push(new Blob());
-        }
-
-        function animateBlobs() {
-          bctx.clearRect(0, 0, blobCanvas.width, blobCanvas.height);
-          blobs.forEach((blob) => blob.update());
-          requestAnimationFrame(animateBlobs);
-        }
-        animateBlobs();
-      }
-
-      /* Matrix Rain Animation */
-      const matrixCanvas = document.getElementById("matrix");
-      if (matrixCanvas) {
-        const mctx = matrixCanvas.getContext("2d");
-        matrixCanvas.width = window.innerWidth;
-        matrixCanvas.height = window.innerHeight;
-
-        const letters =
-          "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        const fontSize = 14;
-        const columns = matrixCanvas.width / fontSize;
-        const drops = Array(Math.floor(columns)).fill(1);
-
-        function drawMatrix() {
-          mctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-          mctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
-
-          mctx.fillStyle = "#0f0";
-          mctx.font = fontSize + "px monospace";
-
-          for (let i = 0; i < drops.length; i++) {
-            const text = letters[Math.floor(Math.random() * letters.length)];
-            mctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-            if (
-              drops[i] * fontSize > matrixCanvas.height &&
-              Math.random() > 0.975
-            ) {
-              drops[i] = 0;
-            }
-            drops[i]++;
-          }
-        }
-        setInterval(drawMatrix, 50);
-      }
-
-      // Hide loading screen after delay
-      window.addEventListener("load", () => {
-        setTimeout(() => {
-          const loadingScreen = document.getElementById("loading-screen");
-          const mainContent = document.getElementById("main-content");
-
-          if (loadingScreen) loadingScreen.classList.add("fade-out");
-          if (mainContent) mainContent.style.opacity = 1;
-
+        function hideToast(toast) {
+          toast.classList.remove("show");
           setTimeout(() => {
-            if (loadingScreen) loadingScreen.style.display = "none";
-          }, 800);
-        }, 2000);
-      });
-
-      /* Resize handling */
-      window.addEventListener("resize", () => {
-        const blobCanvas = document.getElementById("blobs");
-        const matrixCanvas = document.getElementById("matrix");
-
-        if (blobCanvas) {
-          blobCanvas.width = window.innerWidth;
-          blobCanvas.height = window.innerHeight;
-        }
-
-        if (matrixCanvas) {
-          matrixCanvas.width = window.innerWidth;
-          matrixCanvas.height = window.innerHeight;
-        }
-
-        // Reinitialize carousel on resize
-        initCarousel();
-      });
-
-      // Typing effect
-      const words = ["coder", "developer", "freelancer"];
-      let wordIndex = 0,
-        charIndex = 0,
-        isDeleting = false;
-      const speed = 100,
-        delayBetweenWords = 1500;
-
-      function type() {
-        const currentWord = words[wordIndex];
-        const typedElement = document.querySelector(".typed-text");
-        if (!typedElement) return;
-
-        if (!isDeleting && charIndex <= currentWord.length) {
-          typedElement.textContent = currentWord.substring(0, charIndex);
-          charIndex++;
-          setTimeout(type, speed);
-        } else if (isDeleting && charIndex >= 0) {
-          typedElement.textContent = currentWord.substring(0, charIndex);
-          charIndex--;
-          setTimeout(type, speed / 2);
-        } else if (!isDeleting && charIndex > currentWord.length) {
-          isDeleting = true;
-          setTimeout(type, delayBetweenWords);
-        } else if (isDeleting && charIndex < 0) {
-          isDeleting = false;
-          wordIndex = (wordIndex + 1) % words.length;
-          setTimeout(type, speed);
-        }
-      }
-
-      // Start typing effect when page loads
-      window.onload = type;
-
-      // Theme switcher
-      function setTheme(theme) {
-        document.documentElement.setAttribute("data-theme", theme);
-        // Save theme preference to localStorage
-        localStorage.setItem("theme", theme);
-        // Update particles to match the new theme
-        updateParticlesForTheme();
-
-        // Update toggle state
-        const themeToggle = document.getElementById("theme-toggle");
-        const mobileThemeToggle = document.getElementById(
-          "mobile-theme-toggle"
-        );
-
-        if (theme === "dark") {
-          if (themeToggle) themeToggle.checked = false;
-          if (mobileThemeToggle) mobileThemeToggle.checked = false;
-        } else {
-          if (themeToggle) themeToggle.checked = true;
-          if (mobileThemeToggle) mobileThemeToggle.checked = true;
-        }
-      }
-
-      // Load saved theme from localStorage
-      const savedTheme = localStorage.getItem("theme");
-      if (savedTheme) {
-        setTheme(savedTheme);
-      }
-
-      // Scroll progress bar
-      window.addEventListener("scroll", () => {
-        const scrollTop = document.documentElement.scrollTop;
-        const scrollHeight =
-          document.documentElement.scrollHeight - window.innerHeight;
-        const progressBar = document.getElementById("progress-bar");
-
-        if (progressBar) {
-          progressBar.style.width = `${(scrollTop / scrollHeight) * 100}%`;
-        }
-
-        // Show/hide back to top button
-        const backToTop = document.getElementById("back-to-top");
-        if (backToTop) {
-          if (scrollTop > 500) {
-            backToTop.classList.add("visible");
-          } else {
-            backToTop.classList.remove("visible");
-          }
-        }
-
-        // Active navigation highlighting
-        const sections = document.querySelectorAll("section");
-        const navLinks = document.querySelectorAll("nav a, .mobile-nav a");
-
-        let currentSection = "";
-
-        sections.forEach((section) => {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.clientHeight;
-
-          if (scrollTop >= sectionTop - 100) {
-            currentSection = section.getAttribute("id");
-          }
-        });
-
-        navLinks.forEach((link) => {
-          link.classList.remove("active");
-          if (link.getAttribute("href").substring(1) === currentSection) {
-            link.classList.add("active");
-          }
-        });
-      });
-
-      // Back to top functionality
-      function initBackToTop() {
-        const backToTop = document.getElementById("back-to-top");
-        if (!backToTop) return;
-
-        backToTop.addEventListener("click", () => {
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
-        });
-      }
-
-      // Animated stats counter
-      function animateValue(id, start, end, duration) {
-        const obj = document.getElementById(id);
-        if (!obj) return;
-
-        let startTimestamp = null;
-        const step = (timestamp) => {
-          if (!startTimestamp) startTimestamp = timestamp;
-          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-          obj.innerHTML = Math.floor(progress * (end - start) + start);
-          if (progress < 1) {
-            window.requestAnimationFrame(step);
-          }
-        };
-        window.requestAnimationFrame(step);
-      }
-
-      // Start counters when stats section is in view
-      const statsObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              animateValue("project-count", 0, 14, 2000);
-              animateValue("client-count", 0, 2, 2000);
-              animateValue("experience-count", 0, 2, 2000);
-              statsObserver.unobserve(entry.target);
+            if (toast.parentNode) {
+              toast.parentNode.removeChild(toast);
             }
-          });
-        },
-        { threshold: 0.5 }
-      );
-
-      const statsSection = document.querySelector(".stats");
-      if (statsSection) {
-        statsObserver.observe(statsSection);
-      }
-
-      // Resume Download with animation
-      function initResumeDownload() {
-        const downloadBtn = document.getElementById("download-btn");
-        const mobileDownloadBtn = document.getElementById(
-          "mobile-download-btn"
-        );
-
-        function handleDownload() {
-          // Create and trigger download
-          const link = document.createElement("a");
-          link.href = "Resume _MokshShah.pdf"; // Replace with actual resume URL
-          link.download = "Resume _MokshShah.pdf";
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-
-          // Show toast notification
-          showToast("Resume download started!");
+          }, 300);
         }
 
-        if (downloadBtn) downloadBtn.addEventListener("click", handleDownload);
-        if (mobileDownloadBtn)
-          mobileDownloadBtn.addEventListener("click", handleDownload);
-      }
+        // Page transitions
+        function initPageTransitions() {
+          const transition = document.querySelector(".page-transition");
 
-      // Animate skill bars
-      function animateSkillBars() {
-        const skillBars = document.querySelectorAll(".skill-progress");
-        skillBars.forEach((bar) => {
-          const width = bar.getAttribute("data-width");
-          bar.style.width = width;
-        });
-      }
+          // Add click event to all links
+          document.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", (e) => {
+              if (link.getAttribute("href").startsWith("#")) return;
 
-      // Project filtering
-      function initProjectFilters() {
-        const filterButtons = document.querySelectorAll(".filter-btn");
-        const projectCards = document.querySelectorAll(".showcase-card");
+              e.preventDefault();
+              const href = link.getAttribute("href");
 
-        filterButtons.forEach((button) => {
-          button.addEventListener("click", () => {
-            // Remove active class from all buttons
-            filterButtons.forEach((btn) => btn.classList.remove("active"));
-            // Add active class to clicked button
-            button.classList.add("active");
+              transition.classList.add("active");
 
-            const filter = button.getAttribute("data-filter");
-
-            projectCards.forEach((card) => {
-              if (
-                filter === "all" ||
-                card.getAttribute("data-category") === filter
-              ) {
-                card.style.display = "block";
-              } else {
-                card.style.display = "none";
-              }
+              setTimeout(() => {
+                window.location.href = href;
+              }, 500);
             });
           });
-        });
-      }
+        }
 
-      // Project modals
-      function initProjectModals() {
-        const modal = document.getElementById("project-modal");
-        const viewButtons = document.querySelectorAll(".view-project");
-        const closeModal = document.querySelector(".close-modal");
+        // Background toggle
+        function initBackgroundToggle() {
+          const toggleBtn = document.getElementById("bg-toggle");
+          let particlesEnabled = true;
 
-        if (!modal) return;
+          if (!toggleBtn) return;
 
-        viewButtons.forEach((button) => {
-          button.addEventListener("click", () => {
-            modal.style.display = "block";
-            document.body.style.overflow = "hidden";
-          });
-        });
+          toggleBtn.addEventListener("click", () => {
+            particlesEnabled = !particlesEnabled;
 
-        if (closeModal) {
-          closeModal.addEventListener("click", () => {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto";
+            if (particlesEnabled) {
+              document.getElementById("global-particles").style.display =
+                "block";
+              toggleBtn.innerHTML = '<i class="fas fa-layer-group"></i>';
+              showToast("Background effects enabled");
+            } else {
+              document.getElementById("global-particles").style.display =
+                "none";
+              toggleBtn.innerHTML = '<i class="fas fa-times"></i>';
+              showToast("Background effects disabled");
+            }
           });
         }
 
-        window.addEventListener("click", (event) => {
-          if (event.target === modal) {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto";
+        // Theme toggle switch
+        function initThemeToggle() {
+          const themeToggle = document.getElementById("theme-toggle");
+          const mobileThemeToggle = document.getElementById(
+            "mobile-theme-toggle"
+          );
+          const savedTheme = localStorage.getItem("theme") || "dark";
+
+          // Set initial state
+          if (savedTheme === "dark") {
+            if (themeToggle) themeToggle.checked = false;
+            if (mobileThemeToggle) mobileThemeToggle.checked = false;
+          } else {
+            if (themeToggle) themeToggle.checked = true;
+            if (mobileThemeToggle) mobileThemeToggle.checked = true;
           }
-        });
-      }
 
-      // Contact form submission
-      function initContactForm() {
-        const form = document.getElementById("contact-form");
-        const submitBtn = document.getElementById("submit-btn");
-        const loadingSpinner = document.getElementById("submit-loading");
-
-        if (!form) return;
-
-        form.addEventListener("submit", async function (e) {
-          e.preventDefault();
-
-          // Show loading state
-          if (submitBtn) submitBtn.disabled = true;
-          if (loadingSpinner) loadingSpinner.style.display = "inline-block";
-
-          // Get form data
-          const formData = new FormData(form);
-          const data = {
-            name: formData.get("name"),
-            email: formData.get("email"),
-            subject: formData.get("subject") || "Contact Form Submission",
-            message: formData.get("message"),
-          };
-
-          try {
-            // For FormSubmit - using fetch API
-            const response = await fetch(
-              "https://formsubmit.co/ajax/moksh230305@gmail.com",
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                  Accept: "application/json",
-                },
-                body: JSON.stringify(data),
+          if (themeToggle) {
+            themeToggle.addEventListener("change", () => {
+              if (themeToggle.checked) {
+                setTheme("white");
+              } else {
+                setTheme("dark");
               }
-            );
+            });
+          }
 
-            if (response.ok) {
-              const result = await response.json();
+          if (mobileThemeToggle) {
+            mobileThemeToggle.addEventListener("change", () => {
+              if (mobileThemeToggle.checked) {
+                setTheme("white");
+              } else {
+                setTheme("dark");
+              }
+            });
+          }
+        }
 
-              // Show success toast
-              showToast(
-                "Success!",
-                "Your message has been sent successfully. I'll get back to you soon!",
-                "success"
-              );
+        // Mobile menu functionality
+        function initMobileMenu() {
+          const menuBtn = document.getElementById("mobile-menu-btn");
+          const mobileNav = document.getElementById("mobile-nav");
+          const mobileNavClose = document.getElementById("mobile-nav-close");
+          const overlay = document.getElementById("overlay");
 
-              // Reset form
-              form.reset();
-            } else {
-              throw new Error("Form submission failed");
-            }
-          } catch (error) {
-            // Show error toast
-            showToast(
-              "Error",
-              "There was a problem sending your message. Please try again or email me directly.",
-              "error"
-            );
-            console.error("Form submission error:", error);
-          } finally {
-            // Reset button state
-            if (submitBtn) submitBtn.disabled = false;
-            if (loadingSpinner) loadingSpinner.style.display = "none";
+          if (!menuBtn || !mobileNav || !overlay) return;
+
+          function toggleMenu() {
+            mobileNav.classList.toggle("active");
+            overlay.classList.toggle("active");
+            menuBtn.classList.toggle("active");
+            document.body.style.overflow = mobileNav.classList.contains(
+              "active"
+            )
+              ? "hidden"
+              : "auto";
+          }
+
+          menuBtn.addEventListener("click", toggleMenu);
+          mobileNavClose.addEventListener("click", toggleMenu);
+          overlay.addEventListener("click", toggleMenu);
+
+          // Close menu when clicking on links
+          mobileNav.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", toggleMenu);
+          });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener("DOMContentLoaded", function () {
+          updateParticlesForTheme();
+
+          // Display a random quote
+          displayRandomQuote();
+
+          // Initialize blog functionality
+          initBlogs();
+
+          // Animate skill bars
+          animateSkillBars();
+
+          // Initialize filter buttons
+          initProjectFilters();
+
+          // Initialize project modals
+          initProjectModals();
+
+          // Initialize back to top button
+          initBackToTop();
+
+          // Initialize contact form
+          initContactForm();
+
+          // Initialize carousel
+          initCarousel();
+
+          // Initialize custom cursor
+          initCustomCursor();
+
+          // Initialize page transitions
+          initPageTransitions();
+
+          // Initialize background toggle
+          initBackgroundToggle();
+
+          // Initialize theme toggle
+          initThemeToggle();
+
+          // Initialize mobile menu
+          initMobileMenu();
+
+          // Initialize search functionality
+          initSearch();
+
+          // Initialize testimonial modal
+          initTestimonialModal();
+
+          // Smooth scrolling for navigation
+          document
+            .querySelectorAll("nav a, .mobile-nav a")
+            .forEach((anchor) => {
+              anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute("href");
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                  window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: "smooth",
+                  });
+                }
+              });
+            });
+
+          // Smooth scrolling for buttons
+          const contactBtn = document.getElementById("contact-btn");
+          const projectsBtn = document.getElementById("projects-btn");
+
+          if (contactBtn) {
+            contactBtn.addEventListener("click", () => {
+              const contactSection = document.getElementById("contact");
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: "smooth" });
+              }
+            });
+          }
+
+          if (projectsBtn) {
+            projectsBtn.addEventListener("click", () => {
+              const showcaseSection = document.getElementById("showcase");
+              if (showcaseSection) {
+                showcaseSection.scrollIntoView({ behavior: "smooth" });
+              }
+            });
           }
         });
-      }
 
-      // Add this to your existing JavaScript
-      document.addEventListener("click", function (e) {
-        if (
-          e.target.classList.contains("view-project") ||
-          e.target.closest(".view-project")
-        ) {
-          const card = e.target.closest(".showcase-card");
-          const title = card.querySelector("h3").textContent;
-          const image = card.querySelector("img").src;
-          const description = card.querySelector("p").textContent;
+        // Loading animation code
+        const blobCanvas = document.getElementById("blobs");
+        if (blobCanvas) {
+          const bctx = blobCanvas.getContext("2d");
+          blobCanvas.width = window.innerWidth;
+          blobCanvas.height = window.innerHeight;
 
-          // Get tags
-          const tags = Array.from(card.querySelectorAll(".card-tag")).map(
-            (tag) => tag.textContent
+          class Blob {
+            constructor() {
+              this.x = Math.random() * blobCanvas.width;
+              this.y = Math.random() * blobCanvas.height;
+              this.radius = 80 + Math.random() * 100;
+              this.dx = (Math.random() - 0.5) * 0.5;
+              this.dy = (Math.random() - 0.5) * 0.5;
+              this.color = `hsla(${Math.random() * 360}, 70%, 50%, 0.3)`;
+            }
+            draw() {
+              bctx.beginPath();
+              const gradient = bctx.createRadialGradient(
+                this.x,
+                this.y,
+                this.radius * 0.2,
+                this.x,
+                this.y,
+                this.radius
+              );
+              gradient.addColorStop(0, this.color);
+              gradient.addColorStop(1, "transparent");
+              bctx.fillStyle = gradient;
+              bctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+              bctx.fill();
+            }
+            update() {
+              this.x += this.dx;
+              this.y += this.dy;
+              if (
+                this.x - this.radius < 0 ||
+                this.x + this.radius > blobCanvas.width
+              )
+                this.dx *= -1;
+              if (
+                this.y - this.radius < 0 ||
+                this.y + this.radius > blobCanvas.height
+              )
+                this.dy *= -1;
+              this.draw();
+            }
+          }
+
+          let blobs = [];
+          for (let i = 0; i < 6; i++) {
+            blobs.push(new Blob());
+          }
+
+          function animateBlobs() {
+            bctx.clearRect(0, 0, blobCanvas.width, blobCanvas.height);
+            blobs.forEach((blob) => blob.update());
+            requestAnimationFrame(animateBlobs);
+          }
+          animateBlobs();
+        }
+
+        /* Matrix Rain Animation */
+        const matrixCanvas = document.getElementById("matrix");
+        if (matrixCanvas) {
+          const mctx = matrixCanvas.getContext("2d");
+          matrixCanvas.width = window.innerWidth;
+          matrixCanvas.height = window.innerHeight;
+
+          const letters =
+            "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+          const fontSize = 14;
+          const columns = matrixCanvas.width / fontSize;
+          const drops = Array(Math.floor(columns)).fill(1);
+
+          function drawMatrix() {
+            mctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            mctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+
+            mctx.fillStyle = "#0f0";
+            mctx.font = fontSize + "px monospace";
+
+            for (let i = 0; i < drops.length; i++) {
+              const text = letters[Math.floor(Math.random() * letters.length)];
+              mctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+              if (
+                drops[i] * fontSize > matrixCanvas.height &&
+                Math.random() > 0.975
+              ) {
+                drops[i] = 0;
+              }
+              drops[i]++;
+            }
+          }
+          setInterval(drawMatrix, 50);
+        }
+
+        // Hide loading screen after delay
+        window.addEventListener("load", () => {
+          setTimeout(() => {
+            const loadingScreen = document.getElementById("loading-screen");
+            const mainContent = document.getElementById("main-content");
+
+            if (loadingScreen) loadingScreen.classList.add("fade-out");
+            if (mainContent) mainContent.style.opacity = 1;
+
+            setTimeout(() => {
+              if (loadingScreen) loadingScreen.style.display = "none";
+            }, 800);
+          }, 2000);
+        });
+
+        /* Resize handling */
+        window.addEventListener("resize", () => {
+          const blobCanvas = document.getElementById("blobs");
+          const matrixCanvas = document.getElementById("matrix");
+
+          if (blobCanvas) {
+            blobCanvas.width = window.innerWidth;
+            blobCanvas.height = window.innerHeight;
+          }
+
+          if (matrixCanvas) {
+            matrixCanvas.width = window.innerWidth;
+            matrixCanvas.height = window.innerHeight;
+          }
+
+          // Reinitialize carousel on resize
+          initCarousel();
+        });
+
+        // Typing effect
+        const words = ["coder", "developer", "freelancer"];
+        let wordIndex = 0,
+          charIndex = 0,
+          isDeleting = false;
+        const speed = 100,
+          delayBetweenWords = 1500;
+
+        function type() {
+          const currentWord = words[wordIndex];
+          const typedElement = document.querySelector(".typed-text");
+          if (!typedElement) return;
+
+          if (!isDeleting && charIndex <= currentWord.length) {
+            typedElement.textContent = currentWord.substring(0, charIndex);
+            charIndex++;
+            setTimeout(type, speed);
+          } else if (isDeleting && charIndex >= 0) {
+            typedElement.textContent = currentWord.substring(0, charIndex);
+            charIndex--;
+            setTimeout(type, speed / 2);
+          } else if (!isDeleting && charIndex > currentWord.length) {
+            isDeleting = true;
+            setTimeout(type, delayBetweenWords);
+          } else if (isDeleting && charIndex < 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            setTimeout(type, speed);
+          }
+        }
+
+        // Start typing effect when page loads
+        window.onload = type;
+
+        // Theme switcher
+        function setTheme(theme) {
+          document.documentElement.setAttribute("data-theme", theme);
+          // Save theme preference to localStorage
+          localStorage.setItem("theme", theme);
+          // Update particles to match the new theme
+          updateParticlesForTheme();
+
+          // Update toggle state
+          const themeToggle = document.getElementById("theme-toggle");
+          const mobileThemeToggle = document.getElementById(
+            "mobile-theme-toggle"
           );
 
-          // Update modal content
-          const modal = document.getElementById("project-modal");
-          modal.querySelector(".modal-header h2").textContent = title;
-          modal.querySelector(".modal-image").src = image;
-          modal.querySelector(".modal-header .card-tags").innerHTML = "";
+          if (theme === "dark") {
+            if (themeToggle) themeToggle.checked = false;
+            if (mobileThemeToggle) mobileThemeToggle.checked = false;
+          } else {
+            if (themeToggle) themeToggle.checked = true;
+            if (mobileThemeToggle) mobileThemeToggle.checked = true;
+          }
+        }
 
-          // Add tags to modal
-          tags.forEach((tag) => {
-            const tagEl = document.createElement("span");
-            tagEl.className = "card-tag";
-            tagEl.textContent = tag;
-            modal.querySelector(".modal-header .card-tags").appendChild(tagEl);
+        // Load saved theme from localStorage
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+          setTheme(savedTheme);
+        }
+
+        // Scroll progress bar
+        window.addEventListener("scroll", () => {
+          const scrollTop = document.documentElement.scrollTop;
+          const scrollHeight =
+            document.documentElement.scrollHeight - window.innerHeight;
+          const progressBar = document.getElementById("progress-bar");
+
+          if (progressBar) {
+            progressBar.style.width = `${(scrollTop / scrollHeight) * 100}%`;
+          }
+
+          // Show/hide back to top button
+          const backToTop = document.getElementById("back-to-top");
+          if (backToTop) {
+            if (scrollTop > 500) {
+              backToTop.classList.add("visible");
+            } else {
+              backToTop.classList.remove("visible");
+            }
+          }
+
+          // Active navigation highlighting
+          const sections = document.querySelectorAll("section");
+          const navLinks = document.querySelectorAll("nav a, .mobile-nav a");
+
+          let currentSection = "";
+
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+
+            if (scrollTop >= sectionTop - 100) {
+              currentSection = section.getAttribute("id");
+            }
           });
 
-          // Update modal details with project-specific information
-          modal.querySelector(
-            ".modal-details .detail-item:nth-child(1) p"
-          ).textContent = "Personal Project";
-          modal.querySelector(
-            ".modal-details .detail-item:nth-child(2) p"
-          ).textContent = "May 2024";
-          modal.querySelector(
-            ".modal-details .detail-item:nth-child(3) p"
-          ).textContent = "Desktop Application";
-          modal.querySelector(
-            ".modal-details .detail-item:nth-child(4) p a"
-          ).textContent = "GitHub Repository";
-          modal.querySelector(
-            ".modal-details .detail-item:nth-child(4) p a"
-          ).href = "https://github.com/moksh2305/secure-chat-application";
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href").substring(1) === currentSection) {
+              link.classList.add("active");
+            }
+          });
+        });
 
-          // Update modal description
-          modal.querySelector(".modal-content > p").textContent = description;
+        // Back to top functionality
+        function initBackToTop() {
+          const backToTop = document.getElementById("back-to-top");
+          if (!backToTop) return;
 
-          // Update modal buttons
-          const buttons = modal.querySelectorAll(".card-action .card-btn");
-          buttons[0].innerHTML = '<i class="fas fa-arrow-left"></i> Back';
-          buttons[0].onclick = function () {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto";
-          };
-
-          buttons[1].innerHTML = '<i class="fab fa-github"></i> View Code';
-          buttons[1].onclick = function () {
-            window.open(
-              "https://github.com/moksh2305/secure-chat-application",
-              "_blank"
-            );
-          };
-
-          // Show modal
-          modal.style.display = "block";
-          document.body.style.overflow = "hidden";
+          backToTop.addEventListener("click", () => {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          });
         }
-      });
 
-      function initTestimonialModal() {
-        const testimonialModal = document.getElementById("testimonial-modal");
-        const openBtn = document.getElementById("open-testimonial-btn"); // Fixed ID
-        const closeBtn = document.getElementById("close-testimonial-modal");
+        // Animated stats counter
+        function animateValue(id, start, end, duration) {
+          const obj = document.getElementById(id);
+          if (!obj) return;
 
-        if (!openBtn || !testimonialModal) return;
+          let startTimestamp = null;
+          const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min(
+              (timestamp - startTimestamp) / duration,
+              1
+            );
+            obj.innerHTML = Math.floor(progress * (end - start) + start);
+            if (progress < 1) {
+              window.requestAnimationFrame(step);
+            }
+          };
+          window.requestAnimationFrame(step);
+        }
 
-        openBtn.addEventListener("click", () => {
-          testimonialModal.style.display = "block";
-        });
+        // Start counters when stats section is in view
+        const statsObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                animateValue("project-count", 0, 14, 2000);
+                animateValue("client-count", 0, 2, 2000);
+                animateValue("experience-count", 0, 2, 2000);
+                statsObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
 
-        closeBtn.addEventListener("click", () => {
-          testimonialModal.style.display = "none";
-        });
+        const statsSection = document.querySelector(".stats");
+        if (statsSection) {
+          statsObserver.observe(statsSection);
+        }
 
-        window.addEventListener("click", (e) => {
-          if (e.target === testimonialModal) {
-            testimonialModal.style.display = "none";
+        // Resume Download with animation
+        function initResumeDownload() {
+          const downloadBtn = document.getElementById("download-btn");
+          const mobileDownloadBtn = document.getElementById(
+            "mobile-download-btn"
+          );
+
+          function handleDownload() {
+            // Create and trigger download
+            const link = document.createElement("a");
+            link.href = "Resume _MokshShah.pdf"; // Replace with actual resume URL
+            link.download = "Resume _MokshShah.pdf";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Show toast notification
+            showToast("Resume download started!");
+          }
+
+          if (downloadBtn)
+            downloadBtn.addEventListener("click", handleDownload);
+          if (mobileDownloadBtn)
+            mobileDownloadBtn.addEventListener("click", handleDownload);
+        }
+
+        // Animate skill bars
+        function animateSkillBars() {
+          const skillBars = document.querySelectorAll(".skill-progress");
+          skillBars.forEach((bar) => {
+            const width = bar.getAttribute("data-width");
+            bar.style.width = width;
+          });
+        }
+
+        // Project filtering
+        function initProjectFilters() {
+          const filterButtons = document.querySelectorAll(".filter-btn");
+          const projectCards = document.querySelectorAll(".showcase-card");
+
+          filterButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+              // Remove active class from all buttons
+              filterButtons.forEach((btn) => btn.classList.remove("active"));
+              // Add active class to clicked button
+              button.classList.add("active");
+
+              const filter = button.getAttribute("data-filter");
+
+              projectCards.forEach((card) => {
+                if (
+                  filter === "all" ||
+                  card.getAttribute("data-category") === filter
+                ) {
+                  card.style.display = "block";
+                } else {
+                  card.style.display = "none";
+                }
+              });
+            });
+          });
+        }
+
+        // Project modals
+        function initProjectModals() {
+          const modal = document.getElementById("project-modal");
+          const viewButtons = document.querySelectorAll(".view-project");
+          const closeModal = document.querySelector(".close-modal");
+
+          if (!modal) return;
+
+          viewButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+              modal.style.display = "block";
+              document.body.style.overflow = "hidden";
+            });
+          });
+
+          if (closeModal) {
+            closeModal.addEventListener("click", () => {
+              modal.style.display = "none";
+              document.body.style.overflow = "auto";
+            });
+          }
+
+          window.addEventListener("click", (event) => {
+            if (event.target === modal) {
+              modal.style.display = "none";
+              document.body.style.overflow = "auto";
+            }
+          });
+        }
+
+        // Contact form submission
+        function initContactForm() {
+          const form = document.getElementById("contact-form");
+          const submitBtn = document.getElementById("submit-btn");
+          const loadingSpinner = document.getElementById("submit-loading");
+
+          if (!form) return;
+
+          form.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            // Show loading state
+            if (submitBtn) submitBtn.disabled = true;
+            if (loadingSpinner) loadingSpinner.style.display = "inline-block";
+
+            // Get form data
+            const formData = new FormData(form);
+            const data = {
+              name: formData.get("name"),
+              email: formData.get("email"),
+              subject: formData.get("subject") || "Contact Form Submission",
+              message: formData.get("message"),
+            };
+
+            try {
+              // For FormSubmit - using fetch API
+              const response = await fetch(
+                "https://formsubmit.co/ajax/moksh230305@gmail.com",
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                  },
+                  body: JSON.stringify(data),
+                }
+              );
+
+              if (response.ok) {
+                const result = await response.json();
+
+                // Show success toast
+                showToast(
+                  "Success!",
+                  "Your message has been sent successfully. I'll get back to you soon!",
+                  "success"
+                );
+
+                // Reset form
+                form.reset();
+              } else {
+                throw new Error("Form submission failed");
+              }
+            } catch (error) {
+              // Show error toast
+              showToast(
+                "Error",
+                "There was a problem sending your message. Please try again or email me directly.",
+                "error"
+              );
+              console.error("Form submission error:", error);
+            } finally {
+              // Reset button state
+              if (submitBtn) submitBtn.disabled = false;
+              if (loadingSpinner) loadingSpinner.style.display = "none";
+            }
+          });
+        }
+
+        // Add this to your existing JavaScript
+        document.addEventListener("click", function (e) {
+          if (
+            e.target.classList.contains("view-project") ||
+            e.target.closest(".view-project")
+          ) {
+            const card = e.target.closest(".showcase-card");
+            const title = card.querySelector("h3").textContent;
+            const image = card.querySelector("img").src;
+            const description = card.querySelector("p").textContent;
+
+            // Get tags
+            const tags = Array.from(card.querySelectorAll(".card-tag")).map(
+              (tag) => tag.textContent
+            );
+
+            // Update modal content
+            const modal = document.getElementById("project-modal");
+            modal.querySelector(".modal-header h2").textContent = title;
+            modal.querySelector(".modal-image").src = image;
+            modal.querySelector(".modal-header .card-tags").innerHTML = "";
+
+            // Add tags to modal
+            tags.forEach((tag) => {
+              const tagEl = document.createElement("span");
+              tagEl.className = "card-tag";
+              tagEl.textContent = tag;
+              modal
+                .querySelector(".modal-header .card-tags")
+                .appendChild(tagEl);
+            });
+
+            // Update modal details with project-specific information
+            modal.querySelector(
+              ".modal-details .detail-item:nth-child(1) p"
+            ).textContent = "Personal Project";
+            modal.querySelector(
+              ".modal-details .detail-item:nth-child(2) p"
+            ).textContent = "May 2024";
+            modal.querySelector(
+              ".modal-details .detail-item:nth-child(3) p"
+            ).textContent = "Desktop Application";
+            modal.querySelector(
+              ".modal-details .detail-item:nth-child(4) p a"
+            ).textContent = "GitHub Repository";
+            modal.querySelector(
+              ".modal-details .detail-item:nth-child(4) p a"
+            ).href = "https://github.com/moksh2305/secure-chat-application";
+
+            // Update modal description
+            modal.querySelector(".modal-content > p").textContent = description;
+
+            // Update modal buttons
+            const buttons = modal.querySelectorAll(".card-action .card-btn");
+            buttons[0].innerHTML = '<i class="fas fa-arrow-left"></i> Back';
+            buttons[0].onclick = function () {
+              modal.style.display = "none";
+              document.body.style.overflow = "auto";
+            };
+
+            buttons[1].innerHTML = '<i class="fab fa-github"></i> View Code';
+            buttons[1].onclick = function () {
+              window.open(
+                "https://github.com/moksh2305/secure-chat-application",
+                "_blank"
+              );
+            };
+
+            // Show modal
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
           }
         });
 
-        // Avatar selection
-        const avatarOptions = document.querySelectorAll(".avatar-option");
-        let selectedAvatar =
-          "https://api.dicebear.com/6.x/bottts/svg?seed=Default";
+        function initTestimonialModal() {
+          const testimonialModal = document.getElementById("testimonial-modal");
+          const openBtn = document.getElementById("open-testimonial-btn"); // Fixed ID
+          const closeBtn = document.getElementById("close-testimonial-modal");
 
-        avatarOptions.forEach((option) => {
-          option.addEventListener("click", () => {
-            avatarOptions.forEach((opt) => opt.classList.remove("selected"));
-            option.classList.add("selected");
-            selectedAvatar = option.getAttribute("data-avatar");
+          if (!openBtn || !testimonialModal) return;
+
+          openBtn.addEventListener("click", () => {
+            testimonialModal.style.display = "block";
           });
-        });
 
-        // Form submission
-        document
-          .getElementById("testimonial-form")
-          .addEventListener("submit", function (e) {
-            e.preventDefault();
+          closeBtn.addEventListener("click", () => {
+            testimonialModal.style.display = "none";
+          });
 
-            const name = document.getElementById("testimonial-name").value;
-            const role = document.getElementById("testimonial-role").value;
-            const text = document.getElementById("testimonial-text").value;
+          window.addEventListener("click", (e) => {
+            if (e.target === testimonialModal) {
+              testimonialModal.style.display = "none";
+            }
+          });
 
-            // Add testimonial card
-            const container = document.querySelector(".testimonials-container");
-            const newCard = document.createElement("div");
-            newCard.classList.add("testimonial-card");
-            newCard.innerHTML = `
+          // Avatar selection
+          const avatarOptions = document.querySelectorAll(".avatar-option");
+          let selectedAvatar =
+            "https://api.dicebear.com/6.x/bottts/svg?seed=Default";
+
+          avatarOptions.forEach((option) => {
+            option.addEventListener("click", () => {
+              avatarOptions.forEach((opt) => opt.classList.remove("selected"));
+              option.classList.add("selected");
+              selectedAvatar = option.getAttribute("data-avatar");
+            });
+          });
+
+          // Form submission
+          document
+            .getElementById("testimonial-form")
+            .addEventListener("submit", function (e) {
+              e.preventDefault();
+
+              const name = document.getElementById("testimonial-name").value;
+              const role = document.getElementById("testimonial-role").value;
+              const text = document.getElementById("testimonial-text").value;
+
+              // Add testimonial card
+              const container = document.querySelector(
+                ".testimonials-container"
+              );
+              const newCard = document.createElement("div");
+              newCard.classList.add("testimonial-card");
+              newCard.innerHTML = `
             <div class="testimonial-content">"${text}"</div>
             <div class="testimonial-author">
               <img src="${selectedAvatar}" alt="${name}" class="author-avatar" />
@@ -4650,267 +4686,313 @@ function initCarousel() {
               </div>
             </div>
           `;
-            container.appendChild(newCard);
+              container.appendChild(newCard);
 
-            // Reset & close
-            this.reset();
-            avatarOptions.forEach((opt) => opt.classList.remove("selected"));
-            selectedAvatar =
-              "https://api.dicebear.com/6.x/bottts/svg?seed=Default";
-            testimonialModal.style.display = "none";
+              // Reset & close
+              this.reset();
+              avatarOptions.forEach((opt) => opt.classList.remove("selected"));
+              selectedAvatar =
+                "https://api.dicebear.com/6.x/bottts/svg?seed=Default";
+              testimonialModal.style.display = "none";
 
-            // Show success message
-            showToast(
-              "Success!",
-              "Your testimonial has been added.",
-              "success"
-            );
-          });
-      }
-
-      // Search functionality
-      // Search functionality
-      function initSearch() {
-        const searchInput = document.getElementById("search-input");
-        const searchResults = document.getElementById("search-results");
-        const searchToggle = document.getElementById("search-toggle");
-
-        // Updated search index data with all your content
-        const searchIndex = [
-          // Skills
-          {
-            title: "HTML/CSS",
-            category: "Skill",
-            content: "Frontend development with 95% proficiency",
-            url: "#skills",
-            type: "skill",
-          },
-          {
-            title: "JavaScript",
-            category: "Skill",
-            content: "Frontend development with 90% proficiency",
-            url: "#skills",
-            type: "skill",
-          },
-          {
-            title: "React",
-            category: "Skill",
-            content: "Frontend development with 85% proficiency",
-            url: "#skills",
-            type: "skill",
-          },
-          {
-            title: "Python",
-            category: "Skill",
-            content: "Backend development with 82% proficiency",
-            url: "#skills",
-            type: "skill",
-          },
-          {
-            title: "Node.js",
-            category: "Skill",
-            content: "Backend development with 70% proficiency",
-            url: "#skills",
-            type: "skill",
-          },
-          {
-            title: "PHP",
-            category: "Skill",
-            content: "Backend development with 63% proficiency",
-            url: "#skills",
-            type: "skill",
-          },
-          {
-            title: "UI/UX Design",
-            category: "Skill",
-            content: "Design with 80% proficiency",
-            url: "#skills",
-            type: "skill",
-          },
-          {
-            title: "DevOps",
-            category: "Skill",
-            content: "DevOps practices with 70% proficiency",
-            url: "#skills",
-            type: "skill",
-          },
-          {
-            title: "Project Management",
-            category: "Skill",
-            content: "Project management with 85% proficiency",
-            url: "#skills",
-            type: "skill",
-          },
-
-          // Projects
-          {
-            title: "Secure Chat Application",
-            category: "Project",
-            content:
-              "A real-time chat application with end-to-end encryption built with Python and socket programming",
-            url: "#showcase",
-            type: "project",
-          },
-          {
-            title: "Cruise Room Booking System",
-            category: "Project",
-            content:
-              "A comprehensive web application for booking cruise ship rooms with real-time availability",
-            url: "#showcase",
-            type: "project",
-          },
-
-          // Blogs
-          {
-            title: "Gaganyaan: India's Leap into Human Spaceflight",
-            category: "Blog",
-            content:
-              "Exploring India's ambitious mission to send astronauts to space, making it the fourth nation to achieve independent human spaceflight",
-            url: "blog-gaganyaan.html",
-            type: "blog",
-          },
-          {
-            title: "The Double-Edged Sword: Technology and Cybercrime",
-            category: "Blog",
-            content:
-              "Exploring how technological advancement brings both incredible opportunities and new challenges in cybersecurity and ethical hacking",
-            url: "blog-double-edged-sword.html",
-            type: "blog",
-          },
-          {
-            title: "Portals to Other Universe",
-            category: "Blog",
-            content:
-              "Exploring the fascinating concepts of wormholes, multiverse theories, and the scientific possibilities of interdimensional travel",
-            url: "portals-to-other-universe-1.html",
-            type: "blog",
-          },
-          {
-            title: "Portals to Other Universe: The Multiverse Theory",
-            category: "Blog",
-            content:
-              "Exploring the fascinating concepts of wormholes, multiverse theories, and the scientific possibilities of interdimensional travel",
-            url: "portals-to-other-universe-2.html",
-            type: "blog",
-          },
-          {
-            title: "Journey to a Metal World",
-            category: "Blog",
-            content:
-              "Exploring the unexplored world of metal rich elements and the understanding of how scientists plan to reach out there",
-            url: "blog-journey-to-the-metal-world.html",
-            type: "blog",
-          },
-          {
-            title: "Enceladus: The Ocean Moon",
-            category: "Blog",
-            content:
-              "Exploring Saturn's moon Enceladus and the search for extraterrestrial life",
-            url: "blog-voyage-to-icy-moon.html",
-            type: "blog",
-          },
-          {
-            "title": "The Emerging Technology: Shaping Our Future",
-            "category": "Blog",
-            "content": "Exploring the transformative technologies that are reshaping industries, society, and human existence in the 21st century",
-            "url": "blog-the-emerging-technology.html",
-            "type": "blog"
-          },
-          {
-            title: "Umbrella of Artificial Intelligence",
-            category: "Blog",
-            content:
-              "Dive into the world of AI and discover how it's transforming our lives and technology",
-            url: "blog-artificial-intelligence.html",
-            type: "blog",
-          },
-
-          // About section
-          {
-            title: "About Moksh Shah",
-            category: "About",
-            content:
-              "Learn about Moksh Shah, a dedicated developer and technology enthusiast with expertise in full-stack development",
-            url: "#about",
-            type: "about",
-          },
-
-          // Contact section
-          {
-            title: "Contact Moksh Shah",
-            category: "Contact",
-            content:
-              "Get in touch with Moksh Shah for collaborations, projects, or inquiries",
-            url: "#contact",
-            type: "contact",
-          },
-
-          // Testimonials
-          {
-            title: "Testimonials",
-            category: "Testimonials",
-            content: "See what people say about working with Moksh Shah",
-            url: "#testimonials",
-            type: "testimonials",
-          },
-        ];
-
-        // Mobile search toggle
-        if (searchToggle) {
-          searchToggle.addEventListener("click", function () {
-            if (window.innerWidth <= 900) {
-              searchInput.classList.toggle("active");
-              if (searchInput.classList.contains("active")) {
-                searchInput.focus();
-              }
-            }
-          });
+              // Show success message
+              showToast(
+                "Success!",
+                "Your testimonial has been added.",
+                "success"
+              );
+            });
         }
 
-        // Function to handle search
-        function handleSearch(query) {
-          if (query.length < 2) {
-            searchResults.classList.remove("active");
-            return;
+        // Search functionality
+        // Search functionality
+        function initSearch() {
+          const searchInput = document.getElementById("search-input");
+          const searchResults = document.getElementById("search-results");
+          const searchToggle = document.getElementById("search-toggle");
+
+          // Updated search index data with all your content
+          const searchIndex = [
+            // Skills
+            {
+              title: "HTML/CSS",
+              category: "Skill",
+              content: "Frontend development with 95% proficiency",
+              url: "#skills",
+              type: "skill",
+            },
+            {
+              title: "JavaScript",
+              category: "Skill",
+              content: "Frontend development with 90% proficiency",
+              url: "#skills",
+              type: "skill",
+            },
+            {
+              title: "React",
+              category: "Skill",
+              content: "Frontend development with 85% proficiency",
+              url: "#skills",
+              type: "skill",
+            },
+            {
+              title: "Python",
+              category: "Skill",
+              content: "Backend development with 82% proficiency",
+              url: "#skills",
+              type: "skill",
+            },
+            {
+              title: "Node.js",
+              category: "Skill",
+              content: "Backend development with 70% proficiency",
+              url: "#skills",
+              type: "skill",
+            },
+            {
+              title: "PHP",
+              category: "Skill",
+              content: "Backend development with 63% proficiency",
+              url: "#skills",
+              type: "skill",
+            },
+            {
+              title: "UI/UX Design",
+              category: "Skill",
+              content: "Design with 80% proficiency",
+              url: "#skills",
+              type: "skill",
+            },
+            {
+              title: "DevOps",
+              category: "Skill",
+              content: "DevOps practices with 70% proficiency",
+              url: "#skills",
+              type: "skill",
+            },
+            {
+              title: "Project Management",
+              category: "Skill",
+              content: "Project management with 85% proficiency",
+              url: "#skills",
+              type: "skill",
+            },
+
+            // Projects
+            {
+              title: "Secure Chat Application",
+              category: "Project",
+              content:
+                "A real-time chat application with end-to-end encryption built with Python and socket programming",
+              url: "#showcase",
+              type: "project",
+            },
+            {
+              title: "Cruise Room Booking System",
+              category: "Project",
+              content:
+                "A comprehensive web application for booking cruise ship rooms with real-time availability",
+              url: "#showcase",
+              type: "project",
+            },
+
+            // Blogs
+            {
+              title: "Gaganyaan: India's Leap into Human Spaceflight",
+              category: "Blog",
+              content:
+                "Exploring India's ambitious mission to send astronauts to space, making it the fourth nation to achieve independent human spaceflight",
+              url: "blog-gaganyaan.html",
+              type: "blog",
+            },
+            {
+              title: "The Double-Edged Sword: Technology and Cybercrime",
+              category: "Blog",
+              content:
+                "Exploring how technological advancement brings both incredible opportunities and new challenges in cybersecurity and ethical hacking",
+              url: "blog-double-edged-sword.html",
+              type: "blog",
+            },
+            {
+              title: "Portals to Other Universe",
+              category: "Blog",
+              content:
+                "Exploring the fascinating concepts of wormholes, multiverse theories, and the scientific possibilities of interdimensional travel",
+              url: "portals-to-other-universe-1.html",
+              type: "blog",
+            },
+            {
+              title: "Portals to Other Universe: The Multiverse Theory",
+              category: "Blog",
+              content:
+                "Exploring the fascinating concepts of wormholes, multiverse theories, and the scientific possibilities of interdimensional travel",
+              url: "portals-to-other-universe-2.html",
+              type: "blog",
+            },
+            {
+              title: "Journey to a Metal World",
+              category: "Blog",
+              content:
+                "Exploring the unexplored world of metal rich elements and the understanding of how scientists plan to reach out there",
+              url: "blog-journey-to-the-metal-world.html",
+              type: "blog",
+            },
+            {
+              title: "Enceladus: The Ocean Moon",
+              category: "Blog",
+              content:
+                "Exploring Saturn's moon Enceladus and the search for extraterrestrial life",
+              url: "blog-voyage-to-icy-moon.html",
+              type: "blog",
+            },
+            {
+              title: "The Emerging Technology: Shaping Our Future",
+              category: "Blog",
+              content:
+                "Exploring the transformative technologies that are reshaping industries, society, and human existence in the 21st century",
+              url: "blog-the-emerging-technology.html",
+              type: "blog",
+            },
+            {
+              title: "Umbrella of Artificial Intelligence",
+              category: "Blog",
+              content:
+                "Dive into the world of AI and discover how it's transforming our lives and technology",
+              url: "blog-artificial-intelligence.html",
+              type: "blog",
+            },
+
+            // About section
+            {
+              title: "About Moksh Shah",
+              category: "About",
+              content:
+                "Learn about Moksh Shah, a dedicated developer and technology enthusiast with expertise in full-stack development",
+              url: "#about",
+              type: "about",
+            },
+
+            // Contact section
+            {
+              title: "Contact Moksh Shah",
+              category: "Contact",
+              content:
+                "Get in touch with Moksh Shah for collaborations, projects, or inquiries",
+              url: "#contact",
+              type: "contact",
+            },
+
+            // Testimonials
+            {
+              title: "Testimonials",
+              category: "Testimonials",
+              content: "See what people say about working with Moksh Shah",
+              url: "#testimonials",
+              type: "testimonials",
+            },
+          ];
+
+          // Mobile search toggle
+          if (searchToggle) {
+            searchToggle.addEventListener("click", function () {
+              if (window.innerWidth <= 900) {
+                searchInput.classList.toggle("active");
+                if (searchInput.classList.contains("active")) {
+                  searchInput.focus();
+                }
+              }
+            });
           }
 
-          // Filter results
-          const results = searchIndex.filter((item) => {
-            return (
-              item.title.toLowerCase().includes(query) ||
-              item.content.toLowerCase().includes(query) ||
-              item.category.toLowerCase().includes(query)
-            );
-          });
+          // Function to handle search
+          function handleSearch(query) {
+            if (query.length < 2) {
+              searchResults.classList.remove("active");
+              return;
+            }
 
-          // Display results
-          displaySearchResults(results);
-        }
+            // Filter results
+            const results = searchIndex.filter((item) => {
+              return (
+                item.title.toLowerCase().includes(query) ||
+                item.content.toLowerCase().includes(query) ||
+                item.category.toLowerCase().includes(query)
+              );
+            });
 
-        function displaySearchResults(results) {
-          if (results.length === 0) {
-            searchResults.innerHTML =
-              '<div class="no-results">No results found</div>';
-          } else {
-            searchResults.innerHTML = results
-              .map(
-                (result) => `
+            // Display results
+            displaySearchResults(results);
+          }
+
+          function displaySearchResults(results) {
+            if (results.length === 0) {
+              searchResults.innerHTML =
+                '<div class="no-results">No results found</div>';
+            } else {
+              searchResults.innerHTML = results
+                .map(
+                  (result) => `
         <div class="search-result-item" data-url="${result.url}">
           <div class="search-result-title">${result.title}</div>
           <div class="search-result-category">${result.category}</div>
           <div class="search-result-content">${result.content}</div>
         </div>
       `
-              )
-              .join("");
+                )
+                .join("");
 
-            // Add click event to result items
-            const resultItems = searchResults.querySelectorAll(
-              ".search-result-item"
-            );
-            resultItems.forEach((item) => {
-              item.addEventListener("click", () => {
-                window.location.href = item.getAttribute("data-url");
+              // Add click event to result items
+              const resultItems = searchResults.querySelectorAll(
+                ".search-result-item"
+              );
+              resultItems.forEach((item) => {
+                item.addEventListener("click", () => {
+                  window.location.href = item.getAttribute("data-url");
+                  searchResults.classList.remove("active");
+                  searchInput.value = "";
+
+                  // Hide search input on mobile after selection
+                  if (window.innerWidth <= 900) {
+                    searchInput.classList.remove("active");
+                  }
+                });
+              });
+            }
+
+            searchResults.classList.add("active");
+          }
+
+          // Listen to input typing
+          searchInput.addEventListener("input", function () {
+            const query = this.value.toLowerCase().trim();
+            handleSearch(query);
+          });
+
+          // Hide results when clicking outside
+          document.addEventListener("click", (e) => {
+            if (
+              !searchInput.contains(e.target) &&
+              !searchResults.contains(e.target) &&
+              !searchToggle.contains(e.target)
+            ) {
+              searchResults.classList.remove("active");
+
+              // Hide search input on mobile when clicking outside
+              if (window.innerWidth <= 900 && !searchInput.contains(e.target)) {
+                searchInput.classList.remove("active");
+              }
+            }
+          });
+
+          // Handle Enter key to navigate to first result
+          searchInput.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              const firstResult = searchResults.querySelector(
+                ".search-result-item"
+              );
+              if (firstResult) {
+                window.location.href = firstResult.getAttribute("data-url");
                 searchResults.classList.remove("active");
                 searchInput.value = "";
 
@@ -4918,58 +5000,14 @@ function initCarousel() {
                 if (window.innerWidth <= 900) {
                   searchInput.classList.remove("active");
                 }
-              });
-            });
-          }
-
-          searchResults.classList.add("active");
-        }
-
-        // Listen to input typing
-        searchInput.addEventListener("input", function () {
-          const query = this.value.toLowerCase().trim();
-          handleSearch(query);
-        });
-
-        // Hide results when clicking outside
-        document.addEventListener("click", (e) => {
-          if (
-            !searchInput.contains(e.target) &&
-            !searchResults.contains(e.target) &&
-            !searchToggle.contains(e.target)
-          ) {
-            searchResults.classList.remove("active");
-
-            // Hide search input on mobile when clicking outside
-            if (window.innerWidth <= 900 && !searchInput.contains(e.target)) {
-              searchInput.classList.remove("active");
-            }
-          }
-        });
-
-        // Handle Enter key to navigate to first result
-        searchInput.addEventListener("keydown", (e) => {
-          if (e.key === "Enter") {
-            e.preventDefault();
-            const firstResult = searchResults.querySelector(
-              ".search-result-item"
-            );
-            if (firstResult) {
-              window.location.href = firstResult.getAttribute("data-url");
-              searchResults.classList.remove("active");
-              searchInput.value = "";
-
-              // Hide search input on mobile after selection
-              if (window.innerWidth <= 900) {
-                searchInput.classList.remove("active");
               }
             }
-          }
-        });
-      }
+          });
+        }
 
-      // Initialize resume download functionality
-      initResumeDownload();
-    </script>
+        // Initialize resume download functionality
+        initResumeDownload();
+      </script>
+    </div>
   </body>
 </html>
