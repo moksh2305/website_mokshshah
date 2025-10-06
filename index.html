@@ -870,6 +870,7 @@
         flex-wrap: wrap;
         gap: 30px;
         justify-content: center;
+        align-items: stretch;
       }
 
       .testimonial-card {
@@ -878,9 +879,12 @@
         padding: 25px;
         border: 1px solid var(--card-border);
         flex: 1 1 300px;
-        max-width: 350px;
         position: relative;
         transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        max-width: 350px;
+        min-height: 280px;
       }
 
       .testimonial-card:hover {
@@ -892,11 +896,17 @@
         font-style: italic;
         margin-bottom: 20px;
         line-height: 1.6;
+        flex: 1;
+        margin-bottom: 20px;
+        min-height: 120px;
       }
 
       .testimonial-author {
         display: flex;
         align-items: center;
+        margin-top: auto; /* Push to bottom of card */
+        padding-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
       }
 
       .author-avatar {
@@ -905,6 +915,22 @@
         border-radius: 50%;
         margin-right: 15px;
         object-fit: cover;
+      }
+
+      .author-avatar.initials {
+        background: var(--accent-color);
+        color: var(--button-text);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.2rem;
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        margin-right: 15px;
       }
 
       .author-details h4 {
@@ -3133,11 +3159,7 @@
               are remarkable."
             </div>
             <div class="testimonial-author">
-              <img
-                src="https://randomuser.me/api/portraits/men/32.jpg"
-                alt="Client"
-                class="author-avatar"
-              />
+              <div class="author-avatar initials">MS</div>
               <div class="author-details">
                 <h4>Manak Sanghavi</h4>
                 <p class="author-role">Student, Belgium</p>
@@ -3152,11 +3174,7 @@
               to detail really shows—overall, a fantastic experience."
             </div>
             <div class="testimonial-author">
-              <img
-                src="https://randomuser.me/api/portraits/women/44.jpg"
-                alt="Client"
-                class="author-avatar"
-              />
+              <div class="author-avatar initials">BS</div>
               <div class="author-details">
                 <h4>Binal Shah</h4>
                 <p class="author-role">Teacher, Mumbai</p>
@@ -3170,11 +3188,7 @@
               transformed your vague ideas into a stunning, functional website."
             </div>
             <div class="testimonial-author">
-              <img
-                src="https://randomuser.me/api/portraits/men/62.jpg"
-                alt="Client"
-                class="author-avatar"
-              />
+              <div class="author-avatar initials">CS</div>
               <div class="author-details">
                 <h4>Chirag Shah</h4>
                 <p class="author-role">Chemical Engineer, Businessman</p>
